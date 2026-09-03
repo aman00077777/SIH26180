@@ -72,8 +72,38 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     private val _predictionState = MutableStateFlow(PredictionUiState())
     val predictionState: StateFlow<PredictionUiState> = _predictionState
 
-    val sensorData: StateFlow<LiveSensorData> = bleManager.sensorData
-    val bleConnectionState: StateFlow<BleConnectionState> = bleManager.connectionState
+    private val _mergedSensorData = MutableStateFlow(LiveSensorData())
+    val sensorData: StateFlow<LiveSensorData> = _mergedSensorData
+
+    private val _mergedConnectionState = MutableStateFlow(BleConnectionState.IDLE)
+    val bleConnectionState: StateFlow<BleConnectionState> = _mergedConnectionState
+
+    init {
+        // Collect from BLE manager
+        viewModelScope.launch {
+            bleManager.sensorData.collect { bleData ->
+                if (!_virtualFieldModeEnabled.value || bleData.connected) {
+                    _mergedSensorData.value = bleData
+                }
+            }
+        }
+        viewModelScope.launch {
+            bleManager.connectionState.collect { state ->
+                if (!_virtualFieldModeEnabled.value || state == BleConnectionState.CONNECTED) {
+                    _mergedConnectionState.value = state
+                }
+            }
+        }
+        // Collect from WiFi virtual field mode
+        viewModelScope.launch {
+            virtualCaptureManager.telemetryData.collect { wifiData ->
+                if (_virtualFieldModeEnabled.value && wifiData != null) {
+                    _mergedSensorData.value = wifiData
+                    _mergedConnectionState.value = BleConnectionState.CONNECTED
+                }
+            }
+        }
+    }
 
     val allPredictions = db.dao().getAllPredictions()
     val recentSensorReadings = db.dao().getRecentSensorReadings()

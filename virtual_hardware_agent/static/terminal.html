@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiTech MK-VI // Autonomous Quantum Tactical Field Station</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Chakra+Petch:ital,wght@0,500;0,700;1,600&family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #020403;
+            --chassis-dark: #090e0b;
+            --plate-rim: #1b2820;
+            --plate-sheen: #24352b;
+            --neon-green: #00ff73;
+            --neon-cyan: #00f0ff;
+            --neon-amber: #ffaa00;
+            --neon-red: #ff2a4b;
+            --hud-glass: rgba(6, 15, 10, 0.78);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+        body {
+            background: var(--bg-void);
+            color: #d8ede0;
+            font-family: 'Chakra Petch', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 1rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 3D Moving Holographic Grid Backdrop */
+        .hologram-grid-plane {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            height: 65vh;
+            background-image: 
+                linear-gradient(rgba(0, 255, 115, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 115, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(600px) rotateX(65deg);
+            transform-origin: bottom center;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            pointer-events: none;
+            z-index: 0;
+            animation: gridDrift 20s linear infinite;
+        }
+        @keyframes gridDrift {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+
+        /* Main Rugged Military Cyber-Deck Frame */
+        .cyber-deck {
+            position: relative;
+            z-index: 10;
+            max-width: 1300px;
+            width: 100%;
+            background: linear-gradient(165deg, #18231c 0%, #0a100c 50%, #060907 100%);
+            border: 3px solid #2d4233;
+            border-radius: 30px;
+            padding: 2.4rem;
+            box-shadow: 
+                0 0 0 6px #050806,
+                0 0 60px rgba(0, 255, 115, 0.12),
+                0 40px 100px rgba(0, 0, 0, 0.95),
+                inset 0 2px 2px rgba(255,255,255,0.22),
+                inset 0 -6px 20px rgba(0,0,0,0.9);
+        }
+
+        /* 3D Bolted Armor Plating Brackets */
+        .corner-bracket {
+            position: absolute;
+            width: 32px; height: 32px;
+            border: 4px solid #3d5945;
+            pointer-events: none;
+        }
+        .cb-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; border-radius: 14px 0 0 0; }
+        .cb-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; border-radius: 0 14px 0 0; }
+        .cb-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; border-radius: 0 0 0 14px; }
+        .cb-br { bottom: 12px; right: 12px; border-left: none; border-top: none; border-radius: 0 0 14px 0; }
+
+        .chassis-hex {
+            position: absolute;
+            width: 16px; height: 16px;
+            background: radial-gradient(circle, #5b7362 25%, #18241d 85%);
+            border-radius: 50%;
+            border: 1px solid #0f1712;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+        .chx-tl { top: 22px; left: 22px; }
+        .chx-tr { top: 22px; right: 22px; }
+        .chx-bl { bottom: 22px; left: 22px; }
+        .chx-br { bottom: 22px; right: 22px; }
+
+        /* Top Header Control Matrix */
+        .deck-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #233528;
+            padding-bottom: 1.4rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .title-shield {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+        }
+        .tactical-crest {
+            width: 52px; height: 52px;
+            background: #0d1611;
+            border: 2px solid var(--neon-green);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 16px rgba(0, 255, 115, 0.35);
+            position: relative;
+        }
+        .crest-pulse {
+            position: absolute;
+            inset: -4px;
+            border: 1px dashed var(--neon-green);
+            border-radius: 14px;
+            animation: rotateCrest 12s linear infinite;
+        }
+        @keyframes rotateCrest { 100% { transform: rotate(360deg); } }
+
+        .deck-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.85rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 3px;
+            text-shadow: 0 0 14px rgba(0, 255, 115, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .live-tag {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem;
+            background: rgba(255, 42, 75, 0.2);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            animation: pulseAlert 1.5s infinite;
+        }
+        @keyframes pulseAlert { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .deck-subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: #8da493;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        /* Top Military Toggle & Beacons */
+        .hardware-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            background: #070d09;
+            border: 2px solid #233527;
+            padding: 0.7rem 1.4rem;
+            border-radius: 14px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.9);
+        }
+        .interactive-pwr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: #799783;
+            cursor: pointer;
+        }
+        .pwr-knob {
+            width: 44px; height: 24px;
+            background: #111a14;
+            border: 2px solid #364d3c;
+            border-radius: 14px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .pwr-knob::after {
+            content: '';
+            position: absolute;
+            top: 3px; right: 3px;
+            width: 14px; height: 14px;
+            background: radial-gradient(circle, #00ff73, #047857);
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff73;
+            transition: all 0.3s ease;
+        }
+
+        .beacon-cluster {
+            display: flex;
+            gap: 1.4rem;
+            border-left: 1px dashed #24392b;
+            padding-left: 1.4rem;
+        }
+        .beacon-item {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: #9ab4a1;
+        }
+        .emitter-bulb {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #122116;
+        }
+        .emitter-bulb.green { background: var(--neon-green); box-shadow: 0 0 12px var(--neon-green); animation: pulseAlert 2.2s infinite; }
+        .emitter-bulb.cyan { background: var(--neon-cyan); box-shadow: 0 0 12px var(--neon-cyan); }
+        .emitter-bulb.amber { background: var(--neon-amber); box-shadow: 0 0 12px var(--neon-amber); animation: pulseAlert 3s infinite; }
+
+        /* Main Workspace Grid */
+        .deck-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .deck-grid { grid-template-columns: 1fr; }
+        }
+
+        .section-bay {
+            background: var(--hud-glass);
+            border: 2px solid #233628;
+            border-radius: 20px;
+            padding: 1.6rem;
+            box-shadow: inset 0 2px 16px rgba(0,0,0,0.85);
+            position: relative;
+            backdrop-filter: blur(14px);
+        }
+        .bay-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed #273d2e;
+            padding-bottom: 0.7rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #9db5a4;
+        }
+
+        /* 4-Channel Curved Radial Gauges with CRT Scanlines */
+        .gauges-cluster {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.3rem;
+            margin-bottom: 1.6rem;
+        }
+        .radial-module {
+            background: #040805;
+            border: 2px solid #1c2c21;
+            border-radius: 16px;
+            padding: 1.2rem 1rem 0.8rem 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: border-color 0.3s;
+        }
+        .radial-module:hover { border-color: #34523d; }
+        .radial-module::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%);
+            background-size: 100% 3px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .radial-label-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem;
+            color: #5d7c67;
+            margin-bottom: 0.2rem;
+            z-index: 3;
+        }
+
+        .arc-visual-stage {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gauge-canvas {
+            transform: rotate(-135deg);
+        }
+        .arc-bg-track {
+            fill: none;
+            stroke: #101c14;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+        .arc-dynamic-needle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 212;
+            stroke-dashoffset: 106;
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 0 4px currentColor);
+        }
+
+        .radial-center-readout {
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.95rem;
+            font-weight: 700;
+            line-height: 1;
+            z-index: 3;
+        }
+        .radial-unit {
+            font-size: 0.9rem;
+            color: #688a73;
+            margin-left: 2px;
+        }
+
+        /* Power Station & Oscilloscope */
+        .power-station-enclosure {
+            background: #040906;
+            border: 2px solid #1a291f;
+            border-radius: 14px;
+            padding: 1.2rem;
+            position: relative;
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.95);
+        }
+        .batt-meta-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 0.7rem;
+        }
+        .batt-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(25, 1fr);
+            gap: 3px;
+            height: 28px;
+            background: #030604;
+            padding: 4px;
+            border: 1px solid #213526;
+            border-radius: 6px;
+        }
+        .batt-matrix-cell {
+            background: #0b140e;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .batt-matrix-cell.charged {
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        /* Original Clean App Connection Details Card */
+        .conn-card {
+            background: rgba(22, 38, 28, 0.7);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            border-radius: 14px;
+            padding: 1.1rem 1.4rem;
+            margin-top: 1.2rem;
+            backdrop-filter: blur(12px);
+        }
+        .conn-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #8da392;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .conn-row:last-child { border-bottom: none; }
+        .conn-val {
+            color: #e2e8f0;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        /* Tactical Optical Inspection Viewfinder */
+        .viewfinder-capsule {
+            background: #020503;
+            border: 2px solid #233829;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 35px rgba(0,0,0,0.98), 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .viewfinder-capsule img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.15) saturate(1.18);
+        }
+
+        /* Sci-Fi Tactical Reticle Overlay */
+        .tactical-hud-glass {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            margin: 16px;
+            border: 1px dashed rgba(0, 255, 115, 0.3);
+        }
+        .reticle-corner-tl { position: absolute; top: -3px; left: -3px; width: 22px; height: 22px; border-top: 4px solid var(--neon-green); border-left: 4px solid var(--neon-green); }
+        .reticle-corner-tr { position: absolute; top: -3px; right: -3px; width: 22px; height: 22px; border-top: 4px solid var(--neon-green); border-right: 4px solid var(--neon-green); }
+        .reticle-corner-bl { position: absolute; bottom: -3px; left: -3px; width: 22px; height: 22px; border-bottom: 4px solid var(--neon-green); border-left: 4px solid var(--neon-green); }
+        .reticle-corner-br { position: absolute; bottom: -3px; right: -3px; width: 22px; height: 22px; border-bottom: 4px solid var(--neon-green); border-right: 4px solid var(--neon-green); }
+
+        /* Animated Radar Sweep Line over Camera */
+        .radar-sweep-beam {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--neon-green) 50%, transparent 100%);
+            box-shadow: 0 0 12px var(--neon-green);
+            animation: radarSweep 3.5s ease-in-out infinite alternate;
+        }
+        @keyframes radarSweep {
+            0% { top: 0%; opacity: 0.3; }
+            100% { top: 98%; opacity: 0.9; }
+        }
+
+        .crosshair-nexus {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 58px; height: 58px;
+            border: 1px solid rgba(0, 255, 115, 0.4);
+            border-radius: 50%;
+        }
+        .crosshair-nexus::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: -8px; right: -8px;
+            height: 1px;
+            background: rgba(0, 255, 115, 0.5);
+        }
+        .crosshair-nexus::after {
+            content: '';
+            position: absolute;
+            left: 50%; top: -8px; bottom: -8px;
+            width: 1px;
+            background: rgba(0, 255, 115, 0.5);
+        }
+
+        .hud-ticker-tag {
+            position: absolute;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--neon-green);
+            background: rgba(3, 8, 5, 0.88);
+            border: 1px solid rgba(0, 255, 115, 0.35);
+            padding: 3px 9px;
+            border-radius: 4px;
+        }
+        .ht-tl { top: 10px; left: 10px; }
+        .ht-br { bottom: 10px; right: 10px; }
+
+        /* Holographic Crop Identity Badge */
+        .crop-tele-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.2rem;
+            background: #060b08;
+            border: 1px solid #1d2f23;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        .crop-badge-pill {
+            background: rgba(0, 255, 115, 0.12);
+            border: 1.5px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 0.35rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 12px rgba(0, 255, 115, 0.25);
+        }
+
+        /* Real-Time Transducer Oscilloscope Canvas */
+        .oscilloscope-box {
+            margin-top: 1.2rem;
+            background: #030704;
+            border: 1px solid #17281c;
+            border-radius: 10px;
+            padding: 0.8rem;
+            position: relative;
+        }
+        .osc-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: #587963;
+            margin-bottom: 4px;
+        }
+        #oscilloscope {
+            width: 100%;
+            height: 60px;
+            display: block;
+        }
+
+        /* Live UART Terminal Console */
+        .uart-packet-console {
+            margin-top: 1.2rem;
+            background: #020503;
+            border: 1px solid #142419;
+            border-radius: 8px;
+            padding: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #486e53;
+            height: 75px;
+            overflow: hidden;
+            line-height: 1.45;
+        }
+    </style>
+</head>
+<body>
+    <div class="hologram-grid-plane"></div>
+
+    <div class="cyber-deck">
+        <!-- Corner Heavy Bolted Armor Brackets -->
+        <div class="corner-bracket cb-tl"></div>
+        <div class="corner-bracket cb-tr"></div>
+        <div class="corner-bracket cb-bl"></div>
+        <div class="corner-bracket cb-br"></div>
+
+        <div class="chassis-hex chx-tl"></div>
+        <div class="chassis-hex chx-tr"></div>
+        <div class="chassis-hex chx-bl"></div>
+        <div class="chassis-hex chx-br"></div>
+
+        <!-- Master Command Deck Header -->
+        <header class="deck-header">
+            <div class="title-shield">
+                <div class="tactical-crest">
+                    <div class="crest-pulse"></div>
+                    <span style="font-size: 22px;">🛰️</span>
+                </div>
+                <div>
+                    <div class="deck-title">
+                        KRISHITECH FIELD STATION
+                        <span class="live-tag">LIVE TELEMETRY</span>
+                    </div>
+                    <div class="deck-subtitle">MK-VI AUTONOMOUS EDGE TRANSDUCER NODE // MIL-STD-810G // REV 4.0</div>
+                </div>
+            </div>
+
+            <div class="hardware-controls">
+                <div class="interactive-pwr" title="Toggle Hardware Mainline Bus">
+                    <span>PWR BUS</span>
+                    <div class="pwr-knob"></div>
+                </div>
+
+                <div class="beacon-cluster">
+                    <div class="beacon-item"><div class="emitter-bulb green"></div>SYS NOMINAL</div>
+                    <div class="beacon-item"><div class="emitter-bulb cyan"></div>WLAN DIRECT</div>
+                    <div class="beacon-item"><div class="emitter-bulb amber"></div>SOLAR HARVEST</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Enclosure Bay Grid -->
+        <div class="deck-grid">
+            <!-- Left Wing: Transducer Array & Diurnal Power -->
+            <div>
+                <div class="section-bay">
+                    <div class="bay-banner">
+                        <span>BAY 01 // MULTI-SPECTRAL TRANSDUCER ARRAY</span>
+                        <span style="color: var(--neon-amber);">BLE GATT 0x181A</span>
+                    </div>
+
+                    <!-- 4 Curved Radial Analog Sweep Dials -->
+                    <div class="gauges-cluster">
+                        <!-- Soil Moisture CH-01 -->
+                        <div class="radial-module">
+                            <div class="radial-label-row">
+                                <span>SOIL MOISTURE [S-01]</span>
+                                <span>CAPACITIVE</span>
+                            </div>
+                            <div class="arc-visual-stage">
+                                <svg class="gauge-canvas" width="130" height="130" viewBox="0 0 100 100">
+                                    <circle class="arc-bg-track" cx="50" cy="50" r="40" stroke-dasharray="188" stroke-dashoffset="0" />
+                                    <circle class="arc-dynamic-needle" id="arc-moist" cx="50" cy="50" r="40" stroke="var(--neon-cyan)" />
+                                </svg>
+                                <div class="radial-center-readout" style="color: var(--neon-cyan);">
+                                    <span id="moisture">--</span><span class="radial-unit">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Temperature CH-02 -->
+                        <div class="radial-module">
+                            <div class="radial-label-row">
+                                <span>AMBIENT TEMP [S-02]</span>
+                                <span>PT-100 RTD</span>
+                            </div>
+                            <div class="arc-visual-stage">
+                                <svg class="gauge-canvas" width="130" height="130" viewBox="0 0 100 100">
+                                    <circle class="arc-bg-track" cx="50" cy="50" r="40" stroke-dasharray="188" stroke-dashoffset="0" />
+                                    <circle class="arc-dynamic-needle" id="arc-temp" cx="50" cy="50" r="40" stroke="var(--neon-amber)" />
+                                </svg>
+                                <div class="radial-center-readout" style="color: var(--neon-amber);">
+                                    <span id="temperature">--</span><span class="radial-unit">°C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Humidity CH-03 -->
+                        <div class="radial-module">
+                            <div class="radial-label-row">
+                                <span>ATMOS HUMIDITY [S-03]</span>
+                                <span>HYGROMETER</span>
+                            </div>
+                            <div class="arc-visual-stage">
+                                <svg class="gauge-canvas" width="130" height="130" viewBox="0 0 100 100">
+                                    <circle class="arc-bg-track" cx="50" cy="50" r="40" stroke-dasharray="188" stroke-dashoffset="0" />
+                                    <circle class="arc-dynamic-needle" id="arc-hum" cx="50" cy="50" r="40" stroke="#a7f3d0" />
+                                </svg>
+                                <div class="radial-center-readout" style="color: #a7f3d0;">
+                                    <span id="humidity">--</span><span class="radial-unit">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Precipitation CH-04 -->
+                        <div class="radial-module">
+                            <div class="radial-label-row">
+                                <span>PRECIPITATION [S-04]</span>
+                                <span>OPTICAL HYD</span>
+                            </div>
+                            <div class="arc-visual-stage">
+                                <svg class="gauge-canvas" width="130" height="130" viewBox="0 0 100 100">
+                                    <circle class="arc-bg-track" cx="50" cy="50" r="40" stroke-dasharray="188" stroke-dashoffset="0" />
+                                    <circle class="arc-dynamic-needle" id="arc-rain" cx="50" cy="50" r="40" stroke="#38bdf8" />
+                                </svg>
+                                <div class="radial-center-readout" id="raining" style="font-size: 1.3rem; color: #fff;">
+                                    DRY
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bay 02: Power Storage & Battery Bank -->
+                    <div class="bay-banner" style="margin-top: 1.8rem;">
+                        <span>BAY 02 // DIURNAL SOLAR STORAGE SYSTEM</span>
+                        <span style="color: var(--neon-green);">LiFePO4 12.8V BANK</span>
+                    </div>
+
+                    <div class="power-station-enclosure">
+                        <div class="batt-meta-strip">
+                            <span style="color: #72967d;">FLOAT VOLTAGE INTEGRITY</span>
+                            <span id="battery-num" style="color: var(--neon-green); font-size: 1.4rem; font-weight: 700;">--%</span>
+                        </div>
+                        <div class="batt-matrix-grid" id="batt-cells">
+                            <!-- 25 Cells -->
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: #587964; margin-top: 0.6rem;">
+                            <span>PHOTOVOLTAIC HARVEST: 18.2V NOMINAL</span>
+                            <span>DISCHARGE: SLOW TRICKLE (~0.04%/3s)</span>
+                        </div>
+                    </div>
+
+                    <!-- App Connection Details Card (Original Format) -->
+                    <div style="font-size: 0.85rem; font-weight: 600; color: #8da392; text-transform: uppercase; letter-spacing: 1px; margin-top: 1.4rem; margin-bottom: 0.5rem;">
+                        📱 App Connection Details
+                    </div>
+                    <div class="conn-card" style="margin-top: 0;">
+                        <div class="conn-row">
+                            <span>WiFi Direct IP</span>
+                            <span class="conn-val">10.168.181.226</span>
+                        </div>
+                        <div class="conn-row">
+                            <span>HTTP Port</span>
+                            <span class="conn-val">5000</span>
+                        </div>
+                        <div class="conn-row">
+                            <span>BLE Device Name</span>
+                            <span class="conn-val">KrishiTech-FieldNode</span>
+                        </div>
+                        <div class="conn-row">
+                            <span>On-Device AI Engine</span>
+                            <span class="conn-val">TFLite (Mobile NPU/CPU)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Wing: Optical Inspection & Real-Time Oscilloscope -->
+            <div>
+                <div class="section-bay">
+                    <div class="bay-banner">
+                        <span>BAY 03 // AUTONOMOUS OPTICAL CAMERA</span>
+                        <span style="color: var(--neon-green);">120° FOV // BUFFER 224x224</span>
+                    </div>
+
+                    <!-- Tactical Viewfinder Capsule with Radar Sweep Beam -->
+                    <div class="viewfinder-capsule">
+                        <img id="viewfinder-img" src="/static/latest.jpg" alt="Live Field Capture">
+                        <div class="tactical-hud-glass">
+                            <div class="reticle-corner-tl"></div>
+                            <div class="reticle-corner-tr"></div>
+                            <div class="reticle-corner-bl"></div>
+                            <div class="reticle-corner-br"></div>
+                            <div class="radar-sweep-beam"></div>
+                            <div class="crosshair-nexus"></div>
+                            <div class="hud-ticker-tag ht-tl">AUTO-OPTICS ● SHUTTER 1/250s</div>
+                            <div class="hud-ticker-tag ht-br" id="hud-frame-clock">SYNC: 15.0s CYCLE</div>
+                        </div>
+                    </div>
+
+                    <div class="crop-tele-strip">
+                        <span style="color: #72967e; font-size: 0.82rem;">DETECTED CROP SIGNATURE:</span>
+                        <span class="crop-badge-pill" id="crop-sig">INITIALIZING...</span>
+                    </div>
+
+                    <!-- Real-Time Transducer Oscilloscope -->
+                    <div class="oscilloscope-box">
+                        <div class="osc-header">
+                            <span>TRANSDUCER SIGNAL TELEMETRY WAVEFORM</span>
+                            <span style="color: var(--neon-green);">LIVE 60FPS</span>
+                        </div>
+                        <canvas id="oscilloscope" width="400" height="60"></canvas>
+                    </div>
+
+                    <!-- Live Hex UART Stream -->
+                    <div class="uart-packet-console" id="hex-console">
+                        <div>[UART0-TX] 0xAA 0x18 0x1A // POLLING TRANSDUCER BUS CH 01-04</div>
+                        <div>[FRAME-RDY] BUFFER 224x224 RGB // AWAITING SMARTPHONE PULL</div>
+                        <div>[GATT-SYNC] BROADCAST KrishiTech-FieldNode // 10.168.181.226:5000</div>
+                    </div>
+
+                    <div style="font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: #52755e; margin-top: 0.9rem; line-height: 1.45; border-left: 2px solid #233527; padding-left: 10px;">
+                        Hardware Node serves strictly as transducer & image sensor. All neural model diagnosis and fertilizer calculations execute offline on the farmer's smartphone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 25 Discrete Battery Cells
+        const cellBox = document.getElementById('batt-cells');
+        for (let i = 0; i < 25; i++) {
+            const c = document.createElement('div');
+            c.className = 'batt-matrix-cell';
+            cellBox.appendChild(c);
+        }
+
+        // SVG Circular Sweep Arc Length (~188px for 270 deg circle arc)
+        const CIRCLE_ARC = 188;
+        function updateSweepDial(elemId, fraction) {
+            const el = document.getElementById(elemId);
+            if (!el) return;
+            const clamped = Math.max(0, Math.min(1, fraction));
+            el.style.strokeDashoffset = (CIRCLE_ARC * (1 - clamped)).toString();
+            el.style.strokeDasharray = CIRCLE_ARC.toString();
+        }
+
+        async function pollTelemetry() {
+            try {
+                const res = await fetch('/telemetry');
+                const data = await res.json();
+                const sa = data.sensor_array;
+                const ps = data.power_system;
+
+                if (sa) {
+                    document.getElementById('moisture').textContent = sa.soil_moisture_percent.toFixed(1);
+                    document.getElementById('temperature').textContent = sa.temperature_celsius.toFixed(1);
+                    document.getElementById('humidity').textContent = sa.humidity_percent.toFixed(1);
+                    
+                    updateSweepDial('arc-moist', sa.soil_moisture_percent / 100);
+                    updateSweepDial('arc-temp', (sa.temperature_celsius - 15) / 30);
+                    updateSweepDial('arc-hum', (sa.humidity_percent - 20) / 80);
+
+                    const rainVal = document.getElementById('raining');
+                    if (sa.raining) {
+                        rainVal.textContent = 'RAIN ACTIVE';
+                        rainVal.style.color = '#38bdf8';
+                        updateSweepDial('arc-rain', 1.0);
+                    } else {
+                        rainVal.textContent = 'DRY';
+                        rainVal.style.color = '#fff';
+                        updateSweepDial('arc-rain', 0.0);
+                    }
+                }
+                if (ps) {
+                    const b = ps.battery_level_percent;
+                    document.getElementById('battery-num').textContent = `${b.toFixed(1)}%`;
+                    
+                    const cells = document.querySelectorAll('.batt-matrix-cell');
+                    const activeTotal = Math.round((b / 100) * cells.length);
+                    cells.forEach((cell, idx) => {
+                        if (idx < activeTotal) {
+                            cell.classList.add('charged');
+                        } else {
+                            cell.classList.remove('charged');
+                        }
+                    });
+                }
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+
+        async function pollCamera() {
+            try {
+                const res = await fetch('/latest-capture');
+                const data = await res.json();
+                if (data.image_url) {
+                    document.getElementById('viewfinder-img').src = data.image_url;
+                }
+                if (data.crop_hint) {
+                    document.getElementById('crop-sig').textContent = data.crop_hint.replace('_', ' ').toUpperCase();
+                }
+                document.getElementById('hud-frame-clock').textContent = `FRAME: ${new Date().toLocaleTimeString()} // TS ${data.captured_at}`;
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+
+        // Live Oscilloscope Waveform Generator
+        const oscCanvas = document.getElementById('oscilloscope');
+        const oscCtx = oscCanvas.getContext('2d');
+        let oscOffset = 0;
+        function renderOscilloscope() {
+            const w = oscCanvas.width;
+            const h = oscCanvas.height;
+            oscCtx.fillStyle = '#030704';
+            oscCtx.fillRect(0, 0, w, h);
+
+            // Subtle Grid
+            oscCtx.strokeStyle = 'rgba(0, 255, 115, 0.08)';
+            oscCtx.lineWidth = 1;
+            for (let x = 0; x < w; x += 30) {
+                oscCtx.beginPath(); oscCtx.moveTo(x, 0); oscCtx.lineTo(x, h); oscCtx.stroke();
+            }
+            for (let y = 0; y < h; y += 15) {
+                oscCtx.beginPath(); oscCtx.moveTo(0, y); oscCtx.lineTo(w, y); oscCtx.stroke();
+            }
+
+            // Green Sine Wave with Noise
+            oscCtx.strokeStyle = '#00ff73';
+            oscCtx.lineWidth = 1.8;
+            oscCtx.shadowColor = '#00ff73';
+            oscCtx.shadowBlur = 6;
+            oscCtx.beginPath();
+            for (let x = 0; x < w; x++) {
+                const freq = 0.04;
+                const noise = Math.sin((x + oscOffset) * 0.1) * 3;
+                const y = h / 2 + Math.sin((x + oscOffset) * freq) * 16 + noise;
+                if (x === 0) oscCtx.moveTo(x, y);
+                else oscCtx.lineTo(x, y);
+            }
+            oscCtx.stroke();
+            oscCtx.shadowBlur = 0;
+            oscOffset += 2.5;
+            requestAnimationFrame(renderOscilloscope);
+        }
+        renderOscilloscope();
+
+        // Hex UART Packet Stream Generator
+        setInterval(() => {
+            const con = document.getElementById('hex-console');
+            const hexArr = ['0x181A (ENV_SENSE)', '0x2A6F (HUMIDITY)', '0x2A6E (TEMP_C)', '0x2A6D (PRESSURE)', '0xFF01 (PRECIP)', '0x2A19 (BATT)'];
+            const randomHex = hexArr[Math.floor(Math.random() * hexArr.length)];
+            const timeStr = new Date().toISOString().split('T')[1].slice(0,8);
+            const line = document.createElement('div');
+            line.textContent = `[${timeStr}] BROADCAST CHAR ${randomHex} // TX COMPLETE`;
+            con.appendChild(line);
+            if (con.children.length > 4) {
+                con.removeChild(con.children[0]);
+            }
+        }, 2800);
+
+        setInterval(pollTelemetry, 2500);
+        setInterval(pollCamera, 4000);
+        pollTelemetry();
+        pollCamera();
+    </script>
+</body>
+</html>

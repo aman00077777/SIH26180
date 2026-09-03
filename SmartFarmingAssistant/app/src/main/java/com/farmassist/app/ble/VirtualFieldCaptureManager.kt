@@ -35,6 +35,9 @@ class VirtualFieldCaptureManager {
     private val _lastError = MutableStateFlow<String?>(null)
     val lastError: StateFlow<String?> = _lastError
 
+    private val _telemetryData = MutableStateFlow<LiveSensorData?>(null)
+    val telemetryData: StateFlow<LiveSensorData?> = _telemetryData
+
     private var pollingJob: Job? = null
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
@@ -65,10 +68,28 @@ class VirtualFieldCaptureManager {
                             _lastError.value = null
                         }
                     }
+
+                    // Also fetch live telemetry over WiFi
+                    try {
+                        val telemJson = fetchText("$baseUrl/telemetry")
+                        val telem = JSONObject(telemJson)
+                        val sa = telem.optJSONObject("sensor_array")
+                        val ps = telem.optJSONObject("power_system")
+                        if (sa != null) {
+                            _telemetryData.value = LiveSensorData(
+                                soilMoisturePercent = sa.optDouble("soil_moisture_percent", 0.0).toFloat(),
+                                temperatureCelsius = sa.optDouble("temperature_celsius", 0.0).toFloat(),
+                                humidityPercent = sa.optDouble("humidity_percent", 0.0).toFloat(),
+                                rainfallFlag = sa.optBoolean("raining", false),
+                                batteryLevelPercent = ps?.optDouble("battery_level_percent", 50.0)?.toFloat(),
+                                connected = true
+                            )
+                        }
+                    } catch (_: Exception) {}
                 } catch (e: Exception) {
                     _lastError.value = e.message ?: "Connection failed"
                 }
-                delay(15_000L)
+                delay(10_000L)
             }
         }
     }

@@ -59,6 +59,15 @@ SAMPLE_DIR   = BASE_DIR / "sample_images"
 STATIC_DIR   = BASE_DIR / "static"
 LATEST_IMAGE = STATIC_DIR / "latest.jpg"
 
+# Shared in-memory telemetry state (exposed via BLE and HTTP /telemetry)
+_telemetry_data: Dict[str, Any] = {
+    "soil_moisture": 45.0,
+    "temperature": 27.5,
+    "humidity": 55.0,
+    "raining": False,
+    "battery": 50.0,
+}
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  COMPONENT A — BLE Sensor Array + Power System Simulator
 # ═══════════════════════════════════════════════════════════════════════════
@@ -79,12 +88,11 @@ def _float_to_le_bytes(val: float) -> bytes:
 
 async def run_ble_server() -> None:
     """
-    Starts a BLE GATT peripheral advertising as KrishiTech-FieldNode.
-    Updates characteristics every 10 s with random-walk sensor data.
-
-    If bless cannot initialise (common on Windows), prints a clear
-    fallback message and returns gracefully.
+    Simulates live sensor array + power system telemetry.
+    If 'bless' is available and supported, broadcasts via BLE GATT.
+    Regardless of BLE status, continuously updates live telemetry every 3 seconds.
     """
+    server = None
     try:
         from bless import (  # type: ignore[import-untyped]
             BlessGATTCharacteristic,
@@ -92,22 +100,13 @@ async def run_ble_server() -> None:
             GATTAttributePermissions,
             GATTCharacteristicProperties,
         )
-    except ImportError:
-        log.error(
-            "The 'bless' library is not installed.  Run:  pip install bless"
-        )
-        return
 
-    # ── Try to create the BLE server ──────────────────────────────────────
-    trigger = asyncio.Event()
+        def on_read(characteristic: BlessGATTCharacteristic, **kwargs: Any) -> bytearray:
+            return characteristic.value  # type: ignore[return-value]
 
-    def on_read(characteristic: BlessGATTCharacteristic, **kwargs: Any) -> bytearray:
-        return characteristic.value  # type: ignore[return-value]
+        def on_write(characteristic: BlessGATTCharacteristic, value: Any, **kwargs: Any) -> None:
+            pass
 
-    def on_write(characteristic: BlessGATTCharacteristic, value: Any, **kwargs: Any) -> None:
-        pass  # read-only characteristics; ignore writes
-
-    try:
         server = BlessServer(name=DEVICE_NAME, loop=asyncio.get_event_loop())
         server.read_request_func  = on_read
         server.write_request_func = on_write
@@ -133,69 +132,68 @@ async def run_ble_server() -> None:
 
         await server.start()
         log.info("BLE GATT server started — advertising as '%s'", DEVICE_NAME)
-
     except Exception as exc:
-        log.warning("━" * 60)
-        log.warning("BLE peripheral failed to initialise: %s", exc)
-        log.warning("")
-        log.warning("FALLBACK: Windows BLE peripheral support is inconsistent.")
-        log.warning("Use a second phone running the free 'nRF Connect' app:")
-        log.warning("  1. Open nRF Connect → Advertiser → add new packet")
-        log.warning("  2. Set device name to '%s'", DEVICE_NAME)
-        log.warning("  3. Under GATT Server, add service %s", SERVICE_UUID)
-        log.warning("  4. Add characteristics with the UUIDs listed in the plan")
-        log.warning("  5. Set each characteristic value manually (byte hex)")
-        log.warning("━" * 60)
-        return  # exit this component gracefully; camera module keeps running
+        log.info("BLE peripheral skipped (running in Software Telemetry mode): %s", exc)
+        server = None
+
 
     # ── Sensor state — initial random values within realistic ranges ──────
     soil_moisture: float = random.uniform(30.0, 60.0)
     temperature:   float = random.uniform(22.0, 32.0)
     humidity:      float = random.uniform(40.0, 70.0)
     raining:       int   = 0
-    battery:       float = 50.0  # start mid-charge
+    battery:       float = 98.4  # Start near full charge (100%)
 
-    tick = 0  # used for battery oscillation
+    tick = 0
 
     while True:
         # Random-walk each sensor
-        soil_moisture = _random_walk(soil_moisture, 10.0, 90.0, step=2.0)
-        temperature   = _random_walk(temperature,   15.0, 45.0, step=0.8)
-        humidity       = _random_walk(humidity,       20.0, 95.0, step=1.5)
-        raining        = 1 if random.random() < 0.08 else 0  # ~8 % chance each tick
+        soil_moisture = _random_walk(soil_moisture, 10.0, 90.0, step=1.2)
+        temperature   = _random_walk(temperature,   15.0, 45.0, step=0.4)
+        humidity       = _random_walk(humidity,       20.0, 95.0, step=1.0)
+        raining        = 1 if random.random() < 0.05 else 0
 
-        # Battery: smooth sine-wave oscillation over ~4 min (24 ticks × 10 s)
-        # Simulates a compressed solar charge / discharge cycle for demo purposes.
-        battery = 50.0 + 45.0 * math.sin(2 * math.pi * tick / 24)
-        battery = _clamp(battery, 0.0, 100.0)
+        # Battery: starts near 100%, drains very slowly (~0.05% every 3s)
+        # with solar trickle charge maintaining it high
+        battery = _clamp(battery - random.uniform(0.02, 0.06), 85.0, 100.0)
         tick += 1
 
-        # Update BLE characteristics
-        server.get_characteristic(SOIL_MOISTURE_CHAR_UUID).value = bytearray(
-            _float_to_le_bytes(soil_moisture)
-        )
-        server.get_characteristic(TEMPERATURE_CHAR_UUID).value = bytearray(
-            _float_to_le_bytes(temperature)
-        )
-        server.get_characteristic(HUMIDITY_CHAR_UUID).value = bytearray(
-            _float_to_le_bytes(humidity)
-        )
-        server.get_characteristic(RAINFALL_CHAR_UUID).value = bytearray(
-            [raining]  # single byte: 0 or 1
-        )
-        server.get_characteristic(BATTERY_LEVEL_CHAR_UUID).value = bytearray(
-            _float_to_le_bytes(battery)
-        )
+        # Store in global telemetry for HTTP API
+        _telemetry_data["soil_moisture"] = round(soil_moisture, 1)
+        _telemetry_data["temperature"] = round(temperature, 1)
+        _telemetry_data["humidity"] = round(humidity, 1)
+        _telemetry_data["raining"] = bool(raining)
+        _telemetry_data["battery"] = round(battery, 1)
 
-        # Notify all subscribed centrals
-        for uuid in [
-            SOIL_MOISTURE_CHAR_UUID,
-            TEMPERATURE_CHAR_UUID,
-            HUMIDITY_CHAR_UUID,
-            RAINFALL_CHAR_UUID,
-            BATTERY_LEVEL_CHAR_UUID,
-        ]:
-            server.update_value(SERVICE_UUID, uuid)
+        # Update BLE characteristics if server is running
+        if server is not None:
+            try:
+                server.get_characteristic(SOIL_MOISTURE_CHAR_UUID).value = bytearray(
+                    _float_to_le_bytes(soil_moisture)
+                )
+                server.get_characteristic(TEMPERATURE_CHAR_UUID).value = bytearray(
+                    _float_to_le_bytes(temperature)
+                )
+                server.get_characteristic(HUMIDITY_CHAR_UUID).value = bytearray(
+                    _float_to_le_bytes(humidity)
+                )
+                server.get_characteristic(RAINFALL_CHAR_UUID).value = bytearray(
+                    [raining]
+                )
+                server.get_characteristic(BATTERY_LEVEL_CHAR_UUID).value = bytearray(
+                    _float_to_le_bytes(battery)
+                )
+
+                for uuid in [
+                    SOIL_MOISTURE_CHAR_UUID,
+                    TEMPERATURE_CHAR_UUID,
+                    HUMIDITY_CHAR_UUID,
+                    RAINFALL_CHAR_UUID,
+                    BATTERY_LEVEL_CHAR_UUID,
+                ]:
+                    server.update_value(SERVICE_UUID, uuid)
+            except Exception as e:
+                log.debug("BLE update skipped: %s", e)
 
         # Console output — clearly labelled by component
         log.info(
@@ -203,12 +201,13 @@ async def run_ble_server() -> None:
             soil_moisture, temperature, humidity, "YES" if raining else "no",
         )
         log.info(
-            "Power system:  Battery=%.1f%%  (%s)",
+            "Power system:  Battery=%.1f%%  (solar trickle)",
             battery,
-            "charging ↑" if math.cos(2 * math.pi * tick / 24) > 0 else "discharging ↓",
         )
 
-        await asyncio.sleep(10)
+        await asyncio.sleep(3)
+
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -320,9 +319,33 @@ async def run_camera_server() -> None:
     STATIC_DIR.mkdir(parents=True, exist_ok=True)
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
+    from fastapi.responses import HTMLResponse
+
+    TERMINAL_HTML = STATIC_DIR / "terminal.html"
+
+    @app.get("/", response_class=HTMLResponse)
+    async def index() -> HTMLResponse:
+        if TERMINAL_HTML.exists():
+            return HTMLResponse(content=TERMINAL_HTML.read_text(encoding="utf-8"))
+        return HTMLResponse(content="<h1>Terminal HTML missing</h1>")
+
     @app.get("/latest-capture")
     async def latest_capture() -> JSONResponse:
         return JSONResponse(_capture_meta)
+
+    @app.get("/telemetry")
+    async def telemetry() -> JSONResponse:
+        return JSONResponse({
+            "sensor_array": {
+                "soil_moisture_percent": _telemetry_data.get("soil_moisture"),
+                "temperature_celsius": _telemetry_data.get("temperature"),
+                "humidity_percent": _telemetry_data.get("humidity"),
+                "raining": _telemetry_data.get("raining"),
+            },
+            "power_system": {
+                "battery_level_percent": _telemetry_data.get("battery"),
+            }
+        })
 
     images = _discover_sample_images()
 
