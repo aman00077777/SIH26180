@@ -225,46 +225,59 @@ _capture_meta: Dict[str, Any] = {
 
 def _discover_sample_images() -> List[Path]:
     """
-    Returns sorted list of image files in sample_images/.
+    Returns list of image files in sample_images/ (including all subdirectories).
     Creates the directory + a README if it doesn't exist.
     """
     SAMPLE_DIR.mkdir(parents=True, exist_ok=True)
 
-    images = sorted(
-        p for p in SAMPLE_DIR.iterdir()
-        if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}
-    )
+    # Search recursively for all common image formats
+    valid_exts = {".jpg", ".jpeg", ".png", ".webp"}
+    images = [
+        p for p in SAMPLE_DIR.rglob("*")
+        if p.is_file() and p.suffix.lower() in valid_exts
+    ]
+
+    # Shuffle so demo captures a random mix of classes/crops
+    random.shuffle(images)
 
     if not images:
         readme = SAMPLE_DIR / "README.md"
         if not readme.exists():
             readme.write_text(
-                "# Sample Leaf Images\n\n"
-                "Place leaf/pest photos here for the virtual camera module.\n\n"
-                "**Naming convention:**\n"
-                "```\n"
-                "<crop>_<condition>_<N>.jpg\n"
-                "```\n"
-                "Examples:\n"
-                "- `tomato_late_blight_1.jpg`\n"
-                "- `tomato_healthy_1.jpg`\n"
-                "- `rice_brown_spot_1.jpg`\n"
-                "- `wheat_rust_1.png`\n\n"
-                "The crop prefix (before the first underscore) is extracted as the\n"
-                "`crop_hint` in the `/latest-capture` API response.\n",
+                "# Leaf & Pest Dataset Folder\n\n"
+                "Place your Kaggle dataset or sample leaf/pest photos in this directory.\n"
+                "Subfolders are supported automatically! (e.g. `Tomato___Early_blight/*.jpg`)\n",
                 encoding="utf-8",
             )
         log.warning(
-            "No images found in %s — camera module will return empty responses "
-            "until you add sample leaf photos.  See README.md in that folder.",
+            "No images found in %s or subfolders — camera module will return empty responses "
+            "until images are added.",
             SAMPLE_DIR,
         )
+    else:
+        log.info("Discovered %d dataset images across %s", len(images), SAMPLE_DIR)
     return images
 
 
-def _parse_crop_hint(filename: str) -> str:
-    """Extract crop name from filename prefix, e.g. 'tomato_late_blight_1.jpg' → 'tomato'."""
-    stem = Path(filename).stem
+def _parse_crop_hint(file_path: Path) -> str:
+    """
+    Extract crop name from either parent directory or filename prefix.
+    Examples:
+      - 'Tomato___Early_blight/image.jpg' -> 'Tomato'
+      - 'Corn_(maize)___Common_rust/img.jpg' -> 'Corn_(maize)'
+      - 'tomato_late_blight_1.jpg' -> 'tomato'
+    """
+    parent_name = file_path.parent.name
+    if parent_name and parent_name != SAMPLE_DIR.name:
+        if "___" in parent_name:
+            return parent_name.split("___")[0]
+        parts = parent_name.split("_")
+        if parts:
+            return parts[0]
+
+    stem = file_path.stem
+    if "___" in stem:
+        return stem.split("___")[0]
     parts = stem.split("_")
     return parts[0] if parts else "unknown"
 
@@ -280,7 +293,7 @@ async def _image_rotation_loop(images: List[Path]) -> None:
             shutil.copy2(str(src), str(LATEST_IMAGE))
 
             ts = int(time.time())
-            crop = _parse_crop_hint(src.name)
+            crop = _parse_crop_hint(src)
 
             _capture_meta["image_url"]   = f"/static/latest.jpg?t={ts}"
             _capture_meta["crop_hint"]   = crop
