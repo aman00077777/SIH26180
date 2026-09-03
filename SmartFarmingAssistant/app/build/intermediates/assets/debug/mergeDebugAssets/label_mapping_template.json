@@ -1,0 +1,829 @@
+{
+  "schema_version": "1.0",
+  "instructions": [
+    "STEP 1: Download classes.txt from https://github.com/xpwu95/IP102 - this is the canonical IP102 class index-to-name mapping.",
+    "STEP 2: Print your trained model's actual class_names / class_indices (e.g., from your training generator or the Kaggle 'rtlmhjbn/ip02-dataset' folder names) IN ORDER.",
+    "STEP 3: For each index 0-101, fill training_label with your model's folder/label name, and canonical_ip102_name with the matching classes.txt entry.",
+    "STEP 4: Only mark mapping_status as VERIFIED once both names have been checked to refer to the same pest (folder names on Kaggle re-uploads sometimes differ in spelling, ordering, or number of classes from the original IP102).",
+    "STEP 5: Once canonical_ip102_name is confirmed, create or link the matching record in pest_database.json and fill canonical_database_id here.",
+    "WARNING: Do not assume index order matches between your Kaggle dataset and the original IP102 repo without checking - re-uploads have been known to reorder or rename classes."
+  ],
+  "records": [
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 0,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 1,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 2,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 3,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 4,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 5,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 6,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 7,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 8,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 9,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 10,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 11,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 12,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 13,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 14,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 15,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 16,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 17,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 18,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 19,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 20,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 21,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 22,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 23,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 24,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 25,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 26,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 27,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 28,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 29,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 30,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 31,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 32,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 33,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 34,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 35,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 36,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 37,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 38,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 39,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 40,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 41,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 42,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 43,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 44,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 45,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 46,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 47,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 48,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 49,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 50,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 51,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 52,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 53,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 54,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 55,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 56,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 57,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 58,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 59,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 60,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 61,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 62,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 63,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 64,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 65,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 66,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 67,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 68,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 69,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 70,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 71,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 72,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 73,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 74,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 75,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 76,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 77,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 78,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 79,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 80,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 81,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 82,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 83,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 84,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 85,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 86,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 87,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 88,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 89,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 90,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 91,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 92,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 93,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 94,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 95,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 96,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 97,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 98,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 99,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 100,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    },
+    {
+      "model_name": "IP102 Pest Model",
+      "model_class_index": 101,
+      "training_label": "NEEDS_VERIFICATION - fill from your trained model's actual class_names[i] (from your Kaggle 'ip02'/rtlmhjbn dataset folder structure, NOT from memory)",
+      "canonical_ip102_name": "NEEDS_VERIFICATION - fill from official IP102 classes.txt at https://github.com/xpwu95/IP102",
+      "canonical_database_id": "NEEDS_VERIFICATION - fill with the matching id once a pest_database.json record exists for this class",
+      "mapping_status": "NEEDS_VERIFICATION"
+    }
+  ]
+}

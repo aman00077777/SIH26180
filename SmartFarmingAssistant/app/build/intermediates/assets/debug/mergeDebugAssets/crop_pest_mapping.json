@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "notes": "Links pest_id (from pest_database.json) to crops with verified host-relationship sourcing. Populate further as pest_database.json grows in later batches.",
+  "records": [
+    {
+      "pest_id": "fall_armyworm_maize",
+      "crop": "Maize",
+      "scientific_crop_name": "Zea mays",
+      "relationship": {
+        "verified_host": true,
+        "source": "IP102_pending / Sharanabasappa et al. 2018a, Pest Management in Horticultural Ecosystems 24:23-29 - first report of Spodoptera frugiperda on maize in India"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "See pest_database.json record fall_armyworm_maize for full IPM/chemical guidance and its verification caveats."
+      },
+      "sources": [
+        {
+          "source_name": "Indian Journal of Entomology",
+          "source_title": "Management of Fall Army Worm Spodoptera frugiperda (J E Smith) in South Asia - Current Status and Future Strategies",
+          "source_url": "https://indianentomology.org/index.php/ije/article/view/782",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "pest_id": "fall_armyworm_maize",
+      "crop": "Sorghum",
+      "scientific_crop_name": "Sorghum bicolor",
+      "relationship": {
+        "verified_host": true,
+        "source": "Secondary host reported in India with varying economic damage - Sandhya M. et al., 'Invasion of Fall Armyworm in India' review (ResearchGate, 2020)"
+      },
+      "india_specific_management": {
+        "available": false,
+        "notes": "NOT VERIFIED - crop-specific chemical dosing for sorghum not sourced in this batch; do not assume the maize dosage applies without label confirmation."
+      },
+      "sources": []
+    },
+    {
+      "pest_id": "fall_armyworm_maize",
+      "crop": "Millets",
+      "scientific_crop_name": "various (e.g., Pennisetum glaucum, Eleusine coracana)",
+      "relationship": {
+        "verified_host": true,
+        "source": "Secondary host reported in India with varying economic damage - same review as above"
+      },
+      "india_specific_management": {
+        "available": false,
+        "notes": "NOT VERIFIED - crop-specific chemical dosing for millets not sourced in this batch."
+      },
+      "sources": []
+    },
+    {
+      "pest_id": "brown_plant_hopper",
+      "crop": "Rice",
+      "scientific_crop_name": "Oryza sativa",
+      "relationship": {
+        "verified_host": true,
+        "source": "TNAU Agritech Portal - Rice Pest Management"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "See pest_database.json record brown_plant_hopper."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_12.html",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "pest_id": "rice_leaf_roller",
+      "crop": "Rice",
+      "scientific_crop_name": "Oryza sativa",
+      "relationship": {
+        "verified_host": true,
+        "source": "TNAU Agritech Portal - Rice Pest Management"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "See pest_database.json record rice_leaf_roller."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_m5.html",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "pest_id": "aphids",
+      "crop": "Okra (Bhindi)",
+      "scientific_crop_name": "Abelmoschus esculentus",
+      "relationship": {
+        "verified_host": true,
+        "source": "TNAU Agritech Portal - Okra Pest Management"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "See pest_database.json record aphids."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_9.html",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "pest_id": "aphids",
+      "crop": "Wheat",
+      "scientific_crop_name": "Triticum aestivum",
+      "relationship": {
+        "verified_host": true,
+        "source": "ICAR-IIWBR Advisory (secondary report)"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "Chemical guidance sourced via secondary news report of ICAR advisory, not primary document."
+      },
+      "sources": [
+        {
+          "source_name": "ICAR-IIWBR Advisory",
+          "source_url": "https://www.global-agriculture.com/farming-agriculture/icar-iiwbr-issues-advisory-on-aphid-infestation-in-wheat",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "pest_id": "aphids",
+      "crop": "Cowpea",
+      "scientific_crop_name": "Vigna unguiculata",
+      "relationship": {
+        "verified_host": true,
+        "source": "ICAR-IGFRI Jhansi research findings"
+      },
+      "india_specific_management": {
+        "available": true,
+        "notes": "See pest_database.json record aphids."
+      },
+      "sources": [
+        {
+          "source_name": "ICAR-IGFRI Jhansi",
+          "source_url": "https://icar.org.in/en/eco-friendly-approaches-identified-effective-management-aphids-fodder-cowpea",
+          "date_accessed": "2026-09-02"
+        }
+      ]
+    }
+  ]
+}

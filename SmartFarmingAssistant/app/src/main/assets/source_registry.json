@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "notes": "Every source cited anywhere in the knowledge base must have a matching source_id here. Add new sources here first, then reference source_id from disease/pest records.",
+  "sources": [
+    {
+      "source_id": "TNAU_AGRITECH_001",
+      "organization": "Tamil Nadu Agricultural University (TNAU)",
+      "source_name": "TNAU Agritech Portal - Crop Protection (Tomato Diseases)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_8.html",
+      "source_category": "state_agricultural_university_extension_portal",
+      "country_or_region": "India (Tamil Nadu, national relevance)",
+      "authority_level": "official_state_agricultural_university",
+      "license_or_usage_notes": "Public extension portal maintained by TNAU Department of Plant Pathology; content credited to named TNAU faculty; page states 'Updated on Jan 2023'.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_id": "TNAU_AGRITECH_002",
+      "organization": "Tamil Nadu Agricultural University (TNAU)",
+      "source_name": "TNAU Agritech Portal - Crop Protection (Potato Diseases - Early Blight)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_veg_potato_2.html",
+      "source_category": "state_agricultural_university_extension_portal",
+      "country_or_region": "India (Tamil Nadu, national relevance)",
+      "authority_level": "official_state_agricultural_university",
+      "license_or_usage_notes": "Public extension portal; page copyright dated 2015, content not re-dated since - flagged for re-verification against a more recent update if available.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_id": "TNAU_AGRITECH_HOME",
+      "organization": "Tamil Nadu Agricultural University (TNAU)",
+      "source_name": "TNAU Agritech Portal (Home)",
+      "source_url": "https://agritech.tnau.ac.in/index.html",
+      "source_category": "state_agricultural_university_extension_portal",
+      "country_or_region": "India",
+      "authority_level": "official_state_agricultural_university",
+      "license_or_usage_notes": "Umbrella portal; individual crop_protection sub-pages are the actual cited sources.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_id": "ICAR_EPUBS_INDHORT",
+      "organization": "Indian Council of Agricultural Research (ICAR)",
+      "source_name": "Indian Horticulture journal (ICAR ePubs) - 'Late blight disease of tomato: A serious problem for Indian tomato farmers'",
+      "source_url": "https://epubs.icar.org.in/index.php/IndHort/article/view/164935",
+      "source_category": "government_research_institution_journal",
+      "country_or_region": "India",
+      "authority_level": "official_national_research_body",
+      "license_or_usage_notes": "ICAR-published journal article; used for problem-framing context only, not for chemical dosage claims in this batch.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_id": "IP102_GITHUB_CANONICAL",
+      "organization": "Original IP102 dataset authors (Wu, Zhan, Lai, Cheng, Yang - CVPR 2019)",
+      "source_name": "IP102: A Large-Scale Benchmark Dataset for Insect Pest Recognition - official GitHub repository (classes.txt)",
+      "source_url": "https://github.com/xpwu95/IP102",
+      "source_category": "peer_reviewed_dataset_repository",
+      "country_or_region": "international (dataset paper, CVPR 2019)",
+      "authority_level": "canonical_dataset_source",
+      "license_or_usage_notes": "Free for academic usage per repository notice. Contains classes.txt mapping each of the 102 numeric indices to the dataset's class name - THIS is the canonical source of the 102 class labels, not any Kaggle re-upload.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_id": "PLANTVILLAGE_DATASET",
+      "organization": "PlantVillage (Penn State University project)",
+      "source_name": "PlantVillage Dataset",
+      "source_url": "https://plantvillage.psu.edu/",
+      "source_category": "academic_dataset",
+      "country_or_region": "international",
+      "authority_level": "canonical_dataset_source",
+      "license_or_usage_notes": "Source of the 38-class leaf image dataset commonly redistributed on Kaggle; used here only to confirm class taxonomy, not as a treatment-guidance source.",
+      "date_accessed": "2026-09-02"
+    },
+    {
+      "source_name": "Tamil Nadu Agricultural University (TNAU) Agritech Portal",
+      "source_title": "Crop Protection - Maize - Turcicum Leaf Blight (Exserohilum turcicum)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/maize_disease/maize_4.html",
+      "source_type": "state_agricultural_university_extension_portal",
+      "publication_or_update_date": "Not Stated",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified",
+      "used_for": [
+        "corn_northern_leaf_blight"
+      ],
+      "source_id": "TNAU_AGRITECH_003"
+    },
+    {
+      "source_name": "Tamil Nadu Agricultural University (TNAU)",
+      "source_title": "Horticulture Crop Production Guide - Fruits / Apple",
+      "source_url": "https://tnau.ac.in/site/research/wp-content/uploads/sites/60/2020/02/Horticulture-CPG-2020.pdf",
+      "source_type": "state_agricultural_university_crop_production_guide",
+      "publication_or_update_date": "2020",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified",
+      "used_for": [
+        "apple_scab"
+      ],
+      "source_id": "TNAU_AGRITECH_004"
+    },
+    {
+      "source_name": "Tamil Nadu Agricultural University (TNAU) Agritech Portal",
+      "source_title": "Plant Pathology: Concepts and Laboratory Exercises - Plate 7(B), Black rot of grape",
+      "source_url": "https://agritech.tnau.ac.in/pdf/Plant%20Pathology_%20Concepts%20and%20Laboratory%20Exercises_240401_114653.pdf",
+      "source_type": "state_agricultural_university_publication",
+      "publication_or_update_date": "Not Stated",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified",
+      "used_for": [
+        "grape_black_rot"
+      ],
+      "source_id": "TNAU_AGRITECH_005"
+    },
+    {
+      "source_id": "TNAU_Rice_Pests_001",
+      "source_name": "TNAU Agritech Portal",
+      "source_title": "Crop Protection - Paddy - Brown Plant Hopper (Nilaparvata lugens)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_12.html",
+      "source_type": "state_agricultural_university_extension_portal",
+      "publication_or_update_date": "Not Stated",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified"
+    },
+    {
+      "source_id": "TNAU_Rice_Pests_002",
+      "source_name": "TNAU Agritech Portal",
+      "source_title": "Crop Protection - Paddy - Leaf Folder (Cnaphalocrocis medinalis)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_m5.html",
+      "source_type": "state_agricultural_university_extension_portal",
+      "publication_or_update_date": "Not Stated",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified"
+    },
+    {
+      "source_id": "TNAU_Okra_Pests_001",
+      "source_name": "TNAU Agritech Portal",
+      "source_title": "Crop Protection - Horticulture - Okra (Aphids)",
+      "source_url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_9.html",
+      "source_type": "state_agricultural_university_extension_portal",
+      "publication_or_update_date": "Not Stated",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified"
+    },
+    {
+      "source_id": "ICAR_Wheat_Advisory_2025",
+      "source_name": "ICAR-IIWBR Advisory (via news report)",
+      "source_title": "Agronomic Advisory - Aphid Infestation in Wheat",
+      "source_url": "https://www.global-agriculture.com/farming-agriculture/icar-iiwbr-issues-advisory-on-aphid-infestation-in-wheat",
+      "source_type": "secondary_news_report_of_institutional_advisory",
+      "publication_or_update_date": "2025-03-11",
+      "date_accessed": "2026-09-02",
+      "verification_status": "corroborated_but_not_primary_source"
+    },
+    {
+      "source_id": "ICAR_Cowpea_2026",
+      "source_name": "ICAR-IGFRI Jhansi",
+      "source_title": "Eco-Friendly Aphid Management in Fodder Cowpea",
+      "source_url": "https://icar.org.in/en/eco-friendly-approaches-identified-effective-management-aphids-fodder-cowpea",
+      "source_type": "ICAR_research_institute_portal",
+      "publication_or_update_date": "2026-08-01",
+      "date_accessed": "2026-09-02",
+      "verification_status": "verified"
+    }
+  ],
+  "pending_sources_to_add": [
+    "ICAR-IIHR / ICAR-IIVR crop-specific advisories for remaining fruit and vegetable diseases",
+    "ICAR-Central Potato Research Institute (CPRI), Shimla - for verified potato late blight chemical guidance",
+    "ICAR-Central Institute for Cotton/Citrus research - for Huanglongbing (citrus greening) guidance",
+    "State Agriculture Department 'Package of Practices' documents (Punjab Agricultural University, Dr YS Parmar University of Horticulture and Forestry for apple, UAS Bangalore, etc.)",
+    "Krishi Vigyan Kendra (KVK) advisories via ICAR-ATARI portals",
+    "CIB&RC (Central Insecticides Board & Registration Committee) - for confirming current India pesticide registration status before any chemical guidance is marked 'available: true'"
+  ]
+}

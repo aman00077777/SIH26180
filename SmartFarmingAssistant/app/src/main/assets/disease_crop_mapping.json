@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "notes": "Links disease id (from disease_database.json) to crop with scientific name and source. Every PlantVillage disease class is inherently already crop-specific in its model_label, so this file is most useful for cross-crop pathogens (e.g., Phytophthora infestans and Alternaria solani both affect tomato AND potato) - flagging where management CANNOT be assumed to transfer across crops without separate verification.",
+  "records": [
+    {
+      "disease_id": "tomato_late_blight",
+      "crop": "Tomato",
+      "scientific_crop_name": "Solanum lycopersicum",
+      "pathogen_scientific_name": "Phytophthora infestans",
+      "cross_crop_note": "Same pathogen also causes potato_late_blight. Chemical guidance is verified for TOMATO only in this batch (TNAU source); do NOT assume identical dosing is approved/appropriate for potato without separate label/source confirmation.",
+      "source_id": "TNAU_AGRITECH_001"
+    },
+    {
+      "disease_id": "potato_early_blight",
+      "crop": "Potato",
+      "scientific_crop_name": "Solanum tuberosum",
+      "pathogen_scientific_name": "Alternaria solani",
+      "cross_crop_note": "Same pathogen genus also causes tomato_early_blight (tomato_early_blight record is currently a NOT VERIFIED skeleton). Chemical guidance is verified for POTATO only in this batch (TNAU source); do NOT assume identical dosing applies to tomato.",
+      "source_id": "TNAU_AGRITECH_002"
+    },
+    {
+      "disease_id": "potato_late_blight",
+      "crop": "Potato",
+      "scientific_crop_name": "Solanum tuberosum",
+      "pathogen_scientific_name": "Phytophthora infestans",
+      "cross_crop_note": "NOT VERIFIED - potato_late_blight record is currently a skeleton pending an India-specific potato source (e.g., ICAR-Central Potato Research Institute, Shimla).",
+      "source_id": null
+    },
+    {
+      "disease_id": "tomato_early_blight",
+      "crop": "Tomato",
+      "scientific_crop_name": "Solanum lycopersicum",
+      "pathogen_scientific_name": "Alternaria solani",
+      "cross_crop_note": "NOT VERIFIED - tomato_early_blight record is currently a skeleton pending a tomato-specific India source.",
+      "source_id": null
+    }
+  ],
+  "remaining_mappings_status": "The remaining 22 disease records in disease_database.json are single-crop PlantVillage classes and do not require cross-crop mapping entries; they should instead be completed directly in disease_database.json in future batches."
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#2E7D32</color>
+    <string name="app_name">Smart Farming Assistant</string>
+    <style name="Theme.FarmAssist" parent="android:Theme.Material.Light.NoActionBar"/>
+</resources>

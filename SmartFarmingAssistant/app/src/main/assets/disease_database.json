@@ -1,0 +1,2058 @@
+{
+  "schema_version": "1.0",
+  "model": "plant_disease_model",
+  "dataset": "PlantVillage",
+  "records": [
+    {
+      "id": "tomato_late_blight",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Late_blight",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Late Blight",
+        "scientific_name": "Phytophthora infestans",
+        "condition_type": "oomycete (water mold) disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured single-leaf photos on plain backgrounds. Field conditions (mixed lighting, co-occurring diseases, dust) can reduce real-world accuracy versus PlantVillage benchmark accuracy."
+      },
+      "identification": {
+        "description": "Caused by the oomycete Phytophthora infestans. Produces water-soaked, rapidly expanding black lesions on leaves and stems, with white fungal sporulation visible on the underside of leaves in humid conditions.",
+        "symptoms": [
+          "Water-soaked black lesions on leaves and stems that expand rapidly",
+          "Entire leaf becomes necrotic as lesions coalesce",
+          "White sporulation (sporangia/sporangiophores) visible on leaf underside in humid weather",
+          "Dark brown lesions on fruit leading to soft rot and disintegration"
+        ]
+      },
+      "risk_factors": [
+        "Cool nights and warm days with extended leaf wetness from rain or fog",
+        "Sporangia form readily when relative humidity is below 90%",
+        "Optimum temperature for sporulation is 18-22\u00b0C",
+        "Poor field drainage and continuous tomato/potato cropping in the same field"
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Improve field drainage to reduce prolonged leaf wetness",
+          "Remove and destroy visibly infected plant debris"
+        ],
+        "cultural_management": [
+          "Practice crop rotation away from tomato and potato",
+          "Ensure proper drainage in the field"
+        ],
+        "mechanical_or_physical_management": [
+          "Remove and destroy infected leaves/plants promptly to reduce inoculum spread"
+        ],
+        "biological_management": [
+          "Soil application of Trichoderma asperellum (viride) at 1.0 kg/acre, per TNAU Agritech Portal"
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Cyazofamid 34.5% SC",
+              "dose": "80 ml/acre",
+              "source_id": "TNAU_AGRITECH_001"
+            },
+            {
+              "active_ingredient": "Azoxystrobin 23% SC",
+              "dose": "200 ml/acre",
+              "source_id": "TNAU_AGRITECH_001"
+            },
+            {
+              "active_ingredient": "Mancozeb 35% SC",
+              "dose": "1000 g/acre",
+              "source_id": "TNAU_AGRITECH_001"
+            },
+            {
+              "active_ingredient": "Zineb 75% WP",
+              "dose": "800 g/acre",
+              "source_id": "TNAU_AGRITECH_001"
+            },
+            {
+              "active_ingredient": "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
+              "dose": "200 ml/acre",
+              "source_id": "TNAU_AGRITECH_001"
+            }
+          ],
+          "important_note": "Dosages listed exactly as published by TNAU Agritech Portal (Crop Protection, updated Jan 2023), attributed to Dr N. Indra and Dr P. Renukadevi, Dept. of Plant Pathology, TNAU. Pre-harvest interval, spray interval/frequency, and current India pesticide-registration status under the Insecticides Act 1968 were NOT stated on the source page and must be independently confirmed (e.g., via CIB&RC label/registration lookup) before operational use. Regional state agriculture department advisories should also be checked, as approved products/dosages can vary by state and can change over time."
+        },
+        "prevention": [
+          "Use disease-free/certified planting material where available",
+          "Avoid planting tomato in fields immediately after potato or tomato",
+          "Ensure good field drainage before the wet season"
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Monitor closely; remove isolated infected leaves; ensure drainage is adequate."
+        ],
+        "moderate": [
+          "Begin biological (Trichoderma) and/or protectant fungicide program per official guidance above; improve airflow/drainage."
+        ],
+        "high": [
+          "Remove and destroy severely affected plants/debris; apply curative fungicide per official guidance; consult local KVK/agriculture department for confirmation before further chemical use."
+        ]
+      },
+      "farmer_warning": "Late blight can destroy an unprotected tomato crop within 7-10 days under favorable (cool, wet) weather. Act quickly once symptoms are confirmed.",
+      "expert_consultation_required_when": [
+        "Symptoms are visible on more than a small number of plants",
+        "You are unsure whether this is late blight vs. another leaf spot disease",
+        "You need current pesticide registration/availability confirmation for your state"
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "Guidance sourced from TNAU (Tamil Nadu). Disease pressure and locally recommended products can differ by state and season; cross-check with your own state agricultural university or KVK before large-scale chemical use."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_title": "Crop Protection - Tomato - Late Blight (Phytophthora infestans)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_8.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "2023-01",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Identification and management sourced directly from TNAU Agritech Portal, a named-author state agricultural university extension page. Fungicide registration status not independently re-checked against CIB&RC as of date_accessed."
+      }
+    },
+    {
+      "id": "potato_early_blight",
+      "model": "plant_disease_model",
+      "model_label": "Potato___Early_blight",
+      "category": "disease",
+      "crop": {
+        "common_name": "Potato",
+        "scientific_name": "Solanum tuberosum"
+      },
+      "condition": {
+        "common_name": "Early Blight",
+        "scientific_name": "Alternaria solani",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured single-leaf photos on plain backgrounds. Field conditions can reduce real-world accuracy versus PlantVillage benchmark accuracy."
+      },
+      "identification": {
+        "description": "Caused by the fungus Alternaria solani. Present in both hill and plain regions of India. Produces angular to oval brown-black necrotic spots with characteristic concentric rings ('target spot' appearance).",
+        "symptoms": [
+          "Brown-black necrotic angular/oval spots with concentric rings on leaves",
+          "Spots coalesce and spread over the leaf",
+          "Shot holes on tubers"
+        ]
+      },
+      "risk_factors": [
+        "Dry, warm weather (25-30\u00b0C) with intermittent rain",
+        "Poorly vigorous or poorly manured crop",
+        "Conidia/mycelium in soil or crop debris can remain viable for more than 17 months, providing primary inoculum for the next crop"
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Remove and destroy infected plant debris promptly, since it is the primary source of infection"
+        ],
+        "cultural_management": [
+          "Use disease-free seed tubers for planting",
+          "Maintain good crop vigor/nutrition to reduce susceptibility"
+        ],
+        "mechanical_or_physical_management": [
+          "Removal and destruction of infected crop debris after harvest"
+        ],
+        "biological_management": [
+          "NOT VERIFIED in the TNAU source reviewed for this class - not stated on the page consulted."
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Zineb",
+              "dose": "0.2% spray, repeated every 15-20 days",
+              "source_id": "TNAU_AGRITECH_002"
+            },
+            {
+              "active_ingredient": "Captan",
+              "dose": "0.2% spray, repeated every 15-20 days",
+              "source_id": "TNAU_AGRITECH_002"
+            }
+          ],
+          "important_note": "Sourced from TNAU Agritech Portal (Crop Protection - Potato - Early Blight); page copyright shown as 2015 and not clearly re-dated, so this is OLDER guidance than the tomato late blight entry above. Current India pesticide-registration status for Zineb/Captan under the Insecticides Act 1968, and any more recent state advisory updates, were NOT independently re-verified and must be checked (e.g., CIB&RC label database, current state Package of Practices) before operational use."
+        },
+        "prevention": [
+          "Plant disease-free/certified seed tubers",
+          "Remove and destroy crop debris after harvest to reduce carryover inoculum",
+          "Consider resistant varieties (TNAU source notes Kufri Sindhuri has a 'fair degree of resistance')"
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Remove debris, monitor, ensure good crop nutrition."
+        ],
+        "moderate": [
+          "Begin protectant fungicide spray schedule per official guidance above."
+        ],
+        "high": [
+          "Continue/intensify spray schedule per official guidance; consult local KVK/agriculture department to confirm currently approved, up-to-date products."
+        ]
+      },
+      "farmer_warning": "Source page for this entry is comparatively old (TNAU page copyright 2015); confirm current recommended products with your local KVK or state agriculture department before large-scale chemical use.",
+      "expert_consultation_required_when": [
+        "You need current (not 2015-era) product/dosage confirmation",
+        "Symptoms are severe or spreading rapidly",
+        "You are unsure whether this is early blight vs. another leaf spot disease"
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "TNAU source states the disease is present in both hill and plain potato-growing regions of India."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_title": "Crop Protection - Potato - Early Blight (Alternaria solani)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_veg_potato_2.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "2015 (page copyright date; no later update date visible)",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified_but_dated"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "partially_verified",
+        "notes": "Identification well-supported. Chemical guidance verified as published by TNAU but the source page appears older (2015) than the tomato late blight page (2023) - recommend re-confirming currently approved products before farmer-facing use."
+      }
+    },
+    {
+      "id": "apple_black_rot",
+      "model": "plant_disease_model",
+      "model_label": "Apple___Black_rot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Apple",
+        "scientific_name": "Malus domestica"
+      },
+      "condition": {
+        "common_name": "Black Rot",
+        "scientific_name": "Botryosphaeria obtusa",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "apple_cedar_apple_rust",
+      "model": "plant_disease_model",
+      "model_label": "Apple___Cedar_apple_rust",
+      "category": "disease",
+      "crop": {
+        "common_name": "Apple",
+        "scientific_name": "Malus domestica"
+      },
+      "condition": {
+        "common_name": "Cedar Apple Rust",
+        "scientific_name": "Gymnosporangium juniperi-virginianae",
+        "condition_type": "fungal disease (requires alternate juniper/cedar host)"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "cherry_powdery_mildew",
+      "model": "plant_disease_model",
+      "model_label": "Cherry_(including_sour)___Powdery_mildew",
+      "category": "disease",
+      "crop": {
+        "common_name": "Cherry",
+        "scientific_name": "Prunus avium / Prunus cerasus"
+      },
+      "condition": {
+        "common_name": "Powdery Mildew",
+        "scientific_name": "Podosphaera clandestina",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "corn_gray_leaf_spot",
+      "model": "plant_disease_model",
+      "model_label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Corn (Maize)",
+        "scientific_name": "Zea mays"
+      },
+      "condition": {
+        "common_name": "Cercospora Leaf Spot / Gray Leaf Spot",
+        "scientific_name": "Cercospora zeae-maydis",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "corn_common_rust",
+      "model": "plant_disease_model",
+      "model_label": "Corn_(maize)___Common_rust_",
+      "category": "disease",
+      "crop": {
+        "common_name": "Corn (Maize)",
+        "scientific_name": "Zea mays"
+      },
+      "condition": {
+        "common_name": "Common Rust",
+        "scientific_name": "Puccinia sorghi",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "grape_esca",
+      "model": "plant_disease_model",
+      "model_label": "Grape___Esca_(Black_Measles)",
+      "category": "disease",
+      "crop": {
+        "common_name": "Grape",
+        "scientific_name": "Vitis vinifera"
+      },
+      "condition": {
+        "common_name": "Esca (Black Measles)",
+        "scientific_name": "Fungal trunk-disease complex (e.g., Phaeomoniella chlamydospora, Phaeoacremonium spp., Fomitiporia spp.)",
+        "condition_type": "fungal trunk disease complex"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "grape_leaf_blight",
+      "model": "plant_disease_model",
+      "model_label": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "category": "disease",
+      "crop": {
+        "common_name": "Grape",
+        "scientific_name": "Vitis vinifera"
+      },
+      "condition": {
+        "common_name": "Leaf Blight (Isariopsis Leaf Spot)",
+        "scientific_name": "Pseudocercospora vitis (syn. Isariopsis clavispora)",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "orange_huanglongbing",
+      "model": "plant_disease_model",
+      "model_label": "Orange___Haunglongbing_(Citrus_greening)",
+      "category": "disease",
+      "crop": {
+        "common_name": "Orange / Citrus",
+        "scientific_name": "Citrus sinensis / Citrus spp."
+      },
+      "condition": {
+        "common_name": "Huanglongbing (Citrus Greening)",
+        "scientific_name": "Candidatus Liberibacter asiaticus (India, spread by Diaphorina citri)",
+        "condition_type": "bacterial disease (insect-vectored)"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "A serious, high-priority disease for Indian citrus; India-specific ICAR-CCRI (Central Citrus Research Institute, Nagpur) management guidance should be prioritized for verification given the severity of this disease."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "peach_bacterial_spot",
+      "model": "plant_disease_model",
+      "model_label": "Peach___Bacterial_spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Peach",
+        "scientific_name": "Prunus persica"
+      },
+      "condition": {
+        "common_name": "Bacterial Spot",
+        "scientific_name": "Xanthomonas arboricola pv. pruni",
+        "condition_type": "bacterial disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "pepper_bell_bacterial_spot",
+      "model": "plant_disease_model",
+      "model_label": "Pepper,_bell___Bacterial_spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Bell Pepper",
+        "scientific_name": "Capsicum annuum"
+      },
+      "condition": {
+        "common_name": "Bacterial Spot",
+        "scientific_name": "Xanthomonas euvesicatoria (and related Xanthomonas spp.)",
+        "condition_type": "bacterial disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "potato_late_blight",
+      "model": "plant_disease_model",
+      "model_label": "Potato___Late_blight",
+      "category": "disease",
+      "crop": {
+        "common_name": "Potato",
+        "scientific_name": "Solanum tuberosum"
+      },
+      "condition": {
+        "common_name": "Late Blight",
+        "scientific_name": "Phytophthora infestans",
+        "condition_type": "oomycete (water mold) disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "Note: tomato late blight (same pathogen, Phytophthora infestans) IS verified in this batch (see tomato_late_blight) with TNAU-sourced chemical guidance. Potato-specific dosing was NOT confirmed from an India source in this batch and should not be assumed identical to the tomato entry - crop-specific label approval must be checked (e.g., via ICAR-Central Potato Research Institute, Shimla)."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "squash_powdery_mildew",
+      "model": "plant_disease_model",
+      "model_label": "Squash___Powdery_mildew",
+      "category": "disease",
+      "crop": {
+        "common_name": "Squash",
+        "scientific_name": "Cucurbita pepo (and related Cucurbita spp.)"
+      },
+      "condition": {
+        "common_name": "Powdery Mildew",
+        "scientific_name": "Podosphaera xanthii / Erysiphe cichoracearum",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "strawberry_leaf_scorch",
+      "model": "plant_disease_model",
+      "model_label": "Strawberry___Leaf_scorch",
+      "category": "disease",
+      "crop": {
+        "common_name": "Strawberry",
+        "scientific_name": "Fragaria x ananassa"
+      },
+      "condition": {
+        "common_name": "Leaf Scorch",
+        "scientific_name": "Diplocarpon earlianum",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_bacterial_spot",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Bacterial_spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Bacterial Spot",
+        "scientific_name": "Xanthomonas spp. (X. euvesicatoria, X. vesicatoria, X. perforans, X. gardneri)",
+        "condition_type": "bacterial disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_early_blight",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Early_blight",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Early Blight",
+        "scientific_name": "Alternaria solani (also A. tomatophila reported)",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "Note: potato early blight (same pathogen genus) IS verified in this batch (see potato_early_blight) with TNAU-sourced guidance for potato. Tomato-specific dosing was NOT confirmed from an India source in this batch."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_leaf_mold",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Leaf_Mold",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Leaf Mold",
+        "scientific_name": "Passalora fulva (syn. Fulvia fulva / Cladosporium fulvum)",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_septoria_leaf_spot",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Septoria_leaf_spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Septoria Leaf Spot",
+        "scientific_name": "Septoria lycopersici",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_spider_mites",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Two-Spotted Spider Mite damage",
+        "scientific_name": "Tetranychus urticae",
+        "condition_type": "arthropod pest damage (not a pathogen)"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "This PlantVillage class is pest damage (mite), not a pathogen-caused disease, even though it sits in the 'plant disease' model. Treat integrated pest management (not fungicide) sourcing as the correct path once verified."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_target_spot",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Target_Spot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Target Spot",
+        "scientific_name": "Corynespora cassiicola",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_yellow_leaf_curl_virus",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+        "scientific_name": "Begomovirus (Tomato yellow leaf curl virus), transmitted by whitefly Bemisia tabaci",
+        "condition_type": "viral disease (insect-vectored)"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "Management is primarily vector (whitefly) control plus resistant varieties, not a direct-spray-on-virus treatment; ensure the eventual verified record reflects this (cultural + vector-IPM focus) rather than fungicide-style guidance."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "tomato_mosaic_virus",
+      "model": "plant_disease_model",
+      "model_label": "Tomato___Tomato_mosaic_virus",
+      "category": "disease",
+      "crop": {
+        "common_name": "Tomato",
+        "scientific_name": "Solanum lycopersicum"
+      },
+      "condition": {
+        "common_name": "Tomato Mosaic Virus (ToMV)",
+        "scientific_name": "Tobamovirus (Tomato mosaic virus)",
+        "condition_type": "viral disease (mechanically/seed transmitted)"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured, single-leaf, plain-background photos. Field images (mixed lighting, multiple co-occurring stresses, dust, multiple leaves) can reduce real-world model accuracy versus PlantVillage test accuracy. This class should not be treated as a certified diagnosis."
+      },
+      "identification": {
+        "description": "NOT VERIFIED - pending detailed source-backed description for this batch.",
+        "symptoms": [
+          "NOT VERIFIED - pending detailed source review."
+        ]
+      },
+      "risk_factors": [
+        "NOT VERIFIED - pending source review."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "cultural_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "mechanical_or_physical_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "biological_management": [
+          "NOT VERIFIED - pending source review."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No verified India-specific chemical recommendation found in the sources reviewed. Consult the local agriculture department, KVK, or licensed agricultural expert."
+        },
+        "prevention": [
+          "NOT VERIFIED - pending source review."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [],
+        "moderate": [],
+        "high": []
+      },
+      "farmer_warning": "This record has not yet been verified against an authoritative source in this batch. Do not use for field recommendations until completed.",
+      "expert_consultation_required_when": [
+        "Always, until this record is verified."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "NOT VERIFIED"
+      },
+      "sources": [],
+      "last_verified": null,
+      "data_quality": {
+        "status": "not_verified",
+        "notes": "Identification/taxonomy fields drafted from well-established plant pathology naming; management sections intentionally left empty pending India-specific source verification (see PROJECT batching plan)."
+      }
+    },
+    {
+      "id": "corn_northern_leaf_blight",
+      "model": "plant_disease_model",
+      "model_label": "Corn_(maize)___Northern_Leaf_Blight",
+      "category": "disease",
+      "crop": {
+        "common_name": "Corn (Maize)",
+        "scientific_name": "Zea mays"
+      },
+      "condition": {
+        "common_name": "Northern Corn Leaf Blight / Turcicum Leaf Blight (TLB)",
+        "scientific_name": "Exserohilum turcicum",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured single-leaf photos on plain backgrounds. Field conditions (mixed lighting, co-occurring diseases, dust) can reduce real-world accuracy versus PlantVillage benchmark accuracy."
+      },
+      "identification": {
+        "description": "Northern Corn Leaf Blight, also called Turcicum Leaf Blight, is caused by the fungus Exserohilum turcicum. It produces characteristic elongated, spindle- or cigar-shaped necrotic lesions on maize leaves, commonly beginning on lower leaves and progressing upward.",
+        "symptoms": [
+          "Small oval, water-soaked spots may appear during early infection.",
+          "Spots enlarge into elongated, spindle-shaped necrotic lesions running parallel to leaf margins.",
+          "Lesions commonly appear first on lower leaves and move upward as the disease develops.",
+          "Mature lesions are long, elliptical, grayish-green to tan and may reach about 2.5\u201315 cm.",
+          "Under severe disease pressure, lesions may coalesce and cause extensive foliage blighting."
+        ]
+      },
+      "risk_factors": [
+        "Cool, wet and humid weather conditions.",
+        "Extended periods of leaf wetness from rain or dew.",
+        "Infected maize leaves and crop debris left in the field can provide overwintering inoculum.",
+        "Windborne spores can spread the disease from infected plants or nearby fields.",
+        "Susceptible hybrids can experience greater disease severity."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Monitor maize closely from the lower canopy through the silking stage for expanding spindle-shaped lesions.",
+          "Remove, bury or otherwise manage heavily infected crop residues after harvest to reduce inoculum."
+        ],
+        "cultural_management": [
+          "Use resistant or tolerant maize hybrids recommended for the local production region.",
+          "Use appropriate planting windows and agronomic practices that avoid prolonged periods favorable to disease development where practical."
+        ],
+        "mechanical_or_physical_management": [
+          "Where practical, remove heavily diseased plant material from small plots and dispose of it away from healthy maize."
+        ],
+        "biological_management": [
+          "No biological-control treatment was included in the primary TNAU Turcicum Leaf Blight recommendation used for this record."
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Mancozeb",
+              "dose": "2\u20134 g/litre",
+              "source_id": "TNAU_AGRITECH_003"
+            },
+            {
+              "active_ingredient": "Zineb",
+              "dose": "2\u20134 g/litre",
+              "source_id": "TNAU_AGRITECH_003"
+            }
+          ],
+          "important_note": "TNAU documents Mancozeb or Zineb at 2\u20134 g/litre for Turcicum Leaf Blight and states that spraying may be repeated at 10-day intervals after first appearance. This is source-documented extension guidance, not a claim that every formulation remains registered or legally approved in every Indian state in 2026. Verify the current CIB&RC label/registration and local State Agricultural University or KVK advice before application."
+        },
+        "prevention": [
+          "Practice crop rotation where agronomically appropriate.",
+          "Manage infected maize residue after harvest.",
+          "Use clean seed and resistant/tolerant hybrids where available."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Monitor the lower canopy regularly and record whether lesions are increasing in number or moving upward."
+        ],
+        "moderate": [
+          "If disease is spreading toward the middle or upper canopy, consult the current locally approved fungicide recommendations before treatment."
+        ],
+        "high": [
+          "Seek local KVK or agricultural-officer guidance promptly when extensive foliage is affected, particularly around silking and grain filling."
+        ]
+      },
+      "farmer_warning": "Northern Corn Leaf Blight can cause substantial yield loss when severe infection develops before or around silking because loss of functional leaf area reduces photosynthesis needed for grain filling.",
+      "expert_consultation_required_when": [
+        "Symptoms reach the middle or upper canopy before or around silking.",
+        "You are unsure whether symptoms are caused by fungal leaf blight or a bacterial/other foliar disorder.",
+        "You need confirmation of current state-specific pesticide registration, dose, formulation or pre-harvest requirements."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "The chemical guidance in this record is from the Tamil Nadu Agricultural University Agritech Portal. Disease pressure and currently permitted products can vary by state and season, so local extension advice should be checked before application."
+      },
+      "sources": [
+        {
+          "source_name": "Tamil Nadu Agricultural University (TNAU) Agritech Portal",
+          "source_title": "Crop Protection - Maize - Turcicum Leaf Blight (Exserohilum turcicum)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/maize_disease/maize_4.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        },
+        {
+          "source_name": "Tamil Nadu Agricultural University (TNAU)",
+          "source_title": "Crop Production Guide - Agriculture (2020)",
+          "source_url": "https://agritech.tnau.ac.in/ta/pdf/AGRICULTURE.pdf",
+          "source_type": "state_agricultural_university_crop_production_guide",
+          "publication_or_update_date": "2020",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Disease symptoms and Indian extension chemical guidance were checked against official TNAU documentation. Current 2026 pesticide registration status is not asserted by the historical TNAU guidance and must be independently checked before field application."
+      }
+    },
+    {
+      "id": "apple_scab",
+      "model": "plant_disease_model",
+      "model_label": "Apple___Apple_scab",
+      "category": "disease",
+      "crop": {
+        "common_name": "Apple",
+        "scientific_name": "Malus domestica"
+      },
+      "condition": {
+        "common_name": "Apple Scab",
+        "scientific_name": "Venturia inaequalis",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured single-leaf photos on plain backgrounds. Field conditions, mixed lighting and co-occurring disorders can reduce real-world diagnostic accuracy."
+      },
+      "identification": {
+        "description": "Apple scab is a fungal disease caused by Venturia inaequalis that affects leaves, flowers and fruit. It produces olive to dark lesions and can cause leaf distortion, premature leaf fall and scabby, cracked or distorted fruit.",
+        "symptoms": [
+          "Olive, velvety or dark circular lesions on young leaves.",
+          "Lesions may become darker and more clearly defined as they develop.",
+          "Affected leaves can become puckered, distorted, yellow and may drop prematurely.",
+          "Fruit can develop rough, dark scab lesions.",
+          "Severe fruit infections can produce distortion, cracking and reduced market quality."
+        ]
+      },
+      "risk_factors": [
+        "Prolonged leaf wetness during cool, humid spring conditions.",
+        "Infected fallen leaves can support overwintering pseudothecia and primary inoculum.",
+        "Poor orchard sanitation and inadequate removal of infected leaf litter.",
+        "Dense canopies with poor air movement can prolong leaf wetness."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Collect and manage fallen leaves and infected fruit to reduce overwintering inoculum.",
+          "Prune where appropriate to improve canopy airflow and drying."
+        ],
+        "cultural_management": [
+          "Maintain orchard sanitation and remove or manage infected leaf litter.",
+          "Use suitable spacing, pruning and canopy management to reduce prolonged wetness.",
+          "Where regionally suitable, select cultivars with improved scab resistance."
+        ],
+        "mechanical_or_physical_management": [
+          "Remove heavily infected fallen leaves and dropped fruit from the orchard floor.",
+          "Prune affected plant material where practical as part of normal orchard sanitation."
+        ],
+        "biological_management": [
+          "No India-specific biological-control treatment was included in the TNAU source used for the chemical schedule."
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Captafol",
+              "dose": "2 g/litre (silver tip to green tip; TNAU also lists this at 14 days after fruit set)",
+              "source_id": "TNAU_AGRITECH_004"
+            },
+            {
+              "active_ingredient": "Mancozeb",
+              "dose": "2 g/litre (silver tip to green tip, pink bud, or 10 days after petal fall)",
+              "source_id": "TNAU_AGRITECH_004"
+            },
+            {
+              "active_ingredient": "Captan",
+              "dose": "2 g/litre (silver tip to green tip, pink bud, or 10 days after petal fall)",
+              "source_id": "TNAU_AGRITECH_004"
+            },
+            {
+              "active_ingredient": "Carbendazim",
+              "dose": "0.5 g/litre (petal fall stage)",
+              "source_id": "TNAU_AGRITECH_004"
+            }
+          ],
+          "important_note": "These growth-stage-specific rates are documented in the TNAU Horticulture Crop Production Guide. They are historical/source-documented extension recommendations and must not be interpreted as confirmation of current 2026 legal registration. In particular, regulatory status of individual active ingredients can change. Verify the current CIB&RC registration/label and the applicable State Agricultural University or KVK recommendation before use."
+        },
+        "prevention": [
+          "Maintain strict orchard sanitation and manage fallen leaves.",
+          "Use certified, healthy planting material and locally suitable scab-resistant cultivars where available.",
+          "Follow applicable plant-quarantine and movement requirements."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Improve orchard sanitation and monitor new leaves during susceptible growth stages."
+        ],
+        "moderate": [
+          "Use a locally approved scab-management program matched to the current growth stage and current state recommendations."
+        ],
+        "high": [
+          "Seek KVK or State Agricultural University advice when there is extensive defoliation, severe fruit infection or uncertainty about currently permitted fungicides."
+        ]
+      },
+      "farmer_warning": "Severe apple scab can cause premature leaf fall and badly blemished, cracked or distorted fruit, substantially reducing marketable yield and quality.",
+      "expert_consultation_required_when": [
+        "Scab is widespread with early-season defoliation.",
+        "You need to select a chemical based on current regional registration or restrictions.",
+        "Fruit cracking or severe fruit infection is occurring across the orchard."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "TNAU provides the source-documented apple scab schedule used here. Apple production regions should additionally follow their current State Agricultural University, horticulture department and KVK recommendations."
+      },
+      "sources": [
+        {
+          "source_name": "Tamil Nadu Agricultural University (TNAU)",
+          "source_title": "Horticulture Crop Production Guide - Fruits / Apple",
+          "source_url": "https://tnau.ac.in/site/research/wp-content/uploads/sites/60/2020/02/Horticulture-CPG-2020.pdf",
+          "source_type": "state_agricultural_university_crop_production_guide",
+          "publication_or_update_date": "2020",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        },
+        {
+          "source_name": "Tamil Nadu Agricultural University (TNAU) Agritech Portal",
+          "source_title": "Apple Crop Protection",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/apple_1.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Symptoms and growth-stage-specific Indian extension guidance are supported by official TNAU documentation. Current 2026 regulatory status of each active ingredient is not asserted; current CIB&RC and local state guidance must be checked before application."
+      }
+    },
+    {
+      "id": "grape_black_rot",
+      "model": "plant_disease_model",
+      "model_label": "Grape___Black_rot",
+      "category": "disease",
+      "crop": {
+        "common_name": "Grape",
+        "scientific_name": "Vitis vinifera"
+      },
+      "condition": {
+        "common_name": "Black Rot",
+        "scientific_name": "Guignardia bidwellii",
+        "condition_type": "fungal disease"
+      },
+      "plantvillage_information": {
+        "dataset": "PlantVillage",
+        "label_verified": true,
+        "real_world_limitation": "PlantVillage images are mostly lab-captured single-leaf photos on plain backgrounds. Field images with mixed lighting, multiple symptoms, dust or co-occurring grape diseases can reduce real-world diagnostic accuracy."
+      },
+      "identification": {
+        "description": "Grape black rot is a fungal disease associated with Guignardia bidwellii. It can affect leaves and fruit, with characteristic necrotic leaf lesions and infected berries that shrivel and become hard, dark mummies.",
+        "symptoms": [
+          "Small circular to irregular tan, brown or reddish-brown lesions can develop on leaves.",
+          "Leaf lesions may develop darker margins and fruiting structures.",
+          "Infected berries can become brown, shrivel and develop into hard black mummies.",
+          "Fruit symptoms can progress rapidly under favorable warm and wet conditions."
+        ]
+      },
+      "risk_factors": [
+        "Warm, wet and humid conditions that maintain leaf and fruit wetness.",
+        "Rain-splashed inoculum and prolonged wetness favor infection.",
+        "Mummified berries and infected plant material can provide sources of inoculum.",
+        "Poor canopy sanitation can increase disease pressure."
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Remove and destroy mummified berries and visibly infected fruit clusters.",
+          "Remove infected plant material during vineyard sanitation and pruning."
+        ],
+        "cultural_management": [
+          "Maintain an open, well-managed canopy to improve airflow and drying.",
+          "Keep vineyard floors and vines free of retained mummified fruit and infected debris where practical.",
+          "Use locally recommended sanitation and canopy-management practices."
+        ],
+        "mechanical_or_physical_management": [
+          "Prune and remove infected plant parts and mummified berries during vineyard maintenance.",
+          "Dispose of removed infected material so it does not remain as an inoculum source."
+        ],
+        "biological_management": [
+          "No India-specific biological-control recommendation was verified for this record."
+        ],
+        "official_chemical_guidance": {
+          "available": false,
+          "guidance": [],
+          "important_note": "No sufficiently specific, dated India-specific chemical recommendation from ICAR, CIBRC or an Indian State Agricultural University was verified for Guignardia bidwellii grape black rot in the sources reviewed. Consult your local KVK, agriculture department, or licensed agricultural expert for currently approved treatment options."
+        },
+        "prevention": [
+          "Remove mummified berries and infected debris as part of vineyard sanitation.",
+          "Maintain canopy airflow and rapid drying after rain.",
+          "Monitor vines regularly for early leaf and fruit symptoms."
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Remove visible mummified berries and infected material and increase monitoring."
+        ],
+        "moderate": [
+          "Seek current local grape disease-management guidance from the relevant KVK, State Agricultural University or horticulture department."
+        ],
+        "high": [
+          "Obtain professional field diagnosis and current locally approved treatment guidance before applying any pesticide."
+        ]
+      },
+      "farmer_warning": "Black rot can damage grape foliage and fruit; infected berries may shrivel into black mummies and reduce marketable yield.",
+      "expert_consultation_required_when": [
+        "Fruit clusters are developing widespread dark lesions or mummification.",
+        "The symptoms could be confused with downy mildew, powdery mildew or another grape disorder.",
+        "You need a currently approved Indian pesticide, dose, formulation or spray interval."
+      ],
+      "india_context": {
+        "india_specific_guidance_available": false,
+        "region_notes": "The record deliberately does not provide an Indian pesticide recommendation because a sufficiently specific, dated official Indian source for this exact disease was not verified. Indian grape-management recommendations should be obtained from the relevant current KVK, State Agricultural University, horticulture department or ICAR grape research authority."
+      },
+      "sources": [
+        {
+          "source_name": "Tamil Nadu Agricultural University (TNAU) Agritech Portal",
+          "source_title": "Plant Pathology: Concepts and Laboratory Exercises - Plate 7(B), Black rot of grape",
+          "source_url": "https://agritech.tnau.ac.in/pdf/Plant%20Pathology_%20Concepts%20and%20Laboratory%20Exercises_240401_114653.pdf",
+          "source_type": "state_agricultural_university_publication",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "partially_verified",
+        "notes": "Disease identity and core symptom description are supported by plant-pathology references. No India-specific chemical recommendation was verified, so chemical guidance is intentionally disabled. The record should not be treated as a pesticide prescription."
+      }
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0",
+  "model": "pest_detection_model",
+  "dataset": "IP102",
+  "IMPORTANT_NOTE": "The canonical list of 102 IP102 class names has NOT been reproduced here from memory, per project instructions ('Do NOT invent the 102 class names'). The verified canonical source is classes.txt in the official IP102 GitHub repository (https://github.com/xpwu95/IP102, source_id IP102_GITHUB_CANONICAL in source_registry.json). Populating all 102 records requires: (1) fetching classes.txt, (2) cross-checking it against the specific Kaggle 'ip02'/'rtlmhjbn/ip02-dataset' folder/label names your trained model actually uses (these may differ), and (3) researching India-specific IPM guidance per pest. This is Batch 3+ work. One fully-researched demonstration record is included below to show the target level of rigor.",
+  "records": [
+    {
+      "id": "fall_armyworm_maize",
+      "model": "pest_detection_model",
+      "model_label": "NOT VERIFIED - pending cross-check against your trained model's actual class_names / Kaggle folder label",
+      "ip102_class": {
+        "class_id": "NOT VERIFIED - pending cross-check against IP102 classes.txt",
+        "canonical_name": "NOT VERIFIED - pending cross-check against IP102 classes.txt"
+      },
+      "pest": {
+        "common_name": "Fall Armyworm",
+        "scientific_name": "Spodoptera frugiperda",
+        "taxonomy_verified": true
+      },
+      "identification": {
+        "description": "An invasive lepidopteran pest, native to the Americas, first reported on maize in India in May 2018. It has since spread to over 90% of maize-growing areas across India's diverse agro-ecologies.",
+        "key_features": [
+          "Larvae feed on maize leaves, whorl, stem, and cobs",
+          "Characteristic 'window-pane' feeding damage and ragged holes on young whorl leaves",
+          "Larvae bore into stems and cobs, causing structural damage",
+          "Frass (larval excreta) visible in the whorl"
+        ]
+      },
+      "affected_crops": [
+        "Maize (primary host in India)",
+        "Also reported on sorghum and millets in India with varying economic damage"
+      ],
+      "damage_symptoms": [
+        "Window-pane feeding lesions on young leaves",
+        "Ragged, irregular holes in whorl leaves as larvae mature",
+        "Hollowed-out stems and damaged cobs in severe infestation",
+        "Visible larval frass in the whorl"
+      ],
+      "monitoring": [
+        "Regular field scouting of the whorl for egg masses, young larvae, and characteristic window-pane damage, especially in the first 30-40 days after crop emergence",
+        "Pheromone traps for adult moth monitoring (specific trap density/threshold NOT VERIFIED in this batch)"
+      ],
+      "integrated_pest_management": {
+        "cultural": [
+          "NOT VERIFIED - pending direct-source confirmation beyond the secondary report used for chemical guidance below."
+        ],
+        "mechanical_physical": [
+          "NOT VERIFIED - pending direct-source confirmation."
+        ],
+        "biological": [
+          "Bracon hebetor (a larval parasitoid) has been studied for efficacy against S. frugiperda in India per Sree Latha et al. 2019 (Indian Journal of Entomology) - cited as a research finding, NOT yet confirmed as an operational field recommendation in this batch."
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Chlorantraniliprole 18.5% SC",
+              "dose": "70-80 ml in 200 litres of water per acre, sprayed to thoroughly cover upper and lower leaf surfaces",
+              "source_note": "Reported as an ICAR-IARI (Indian Agricultural Research Institute) recommendation via a secondary news report (global-agriculture.com, July 2025). This dose is also consistent with the 0.4 ml/L rate (~80 ml/200L) studied at ICAR-Indian Institute of Maize Research, Hyderabad (Plant Science Today, 2025)."
+            }
+          ],
+          "crop_specific_required": true,
+          "region_specific_required": true,
+          "important_note": "The Chlorantraniliprole dose above is corroborated by two independent sources (a secondary report of an IARI recommendation, and a peer-reviewed field study from ICAR-IIMR), but the PRIMARY IARI/ICAR advisory document itself was not directly located and fetched in this batch. Before farmer-facing deployment, locate and cite the primary ICAR/IARI or state agricultural university advisory directly, and confirm current CIB&RC registration status for this product on maize."
+        }
+      },
+      "farmer_context_required": [
+        "crop",
+        "state",
+        "growth_stage",
+        "severity"
+      ],
+      "expert_consultation_required_when": [
+        "Infestation is detected in more than a small percentage of the whorl-stage plants",
+        "You need confirmation of the primary source document before large-scale spraying",
+        "You are unsure whether whorl damage is fall armyworm vs. another stem borer/caterpillar pest"
+      ],
+      "sources": [
+        {
+          "source_name": "Global Agriculture (secondary report of IARI recommendation)",
+          "source_title": "Fall Armyworm Threatens Maize Crops in India: IARI Recommends Immediate Control Measures",
+          "source_url": "https://www.global-agriculture.com/farming-agriculture/fall-armyworm-threatens-maize-crops-in-india-iari-recommends-immediate-control-measures/",
+          "source_type": "secondary_news_report_of_institutional_recommendation",
+          "date_accessed": "2026-09-02",
+          "verification_status": "corroborated_but_not_primary_source"
+        },
+        {
+          "source_name": "Plant Science Today",
+          "source_title": "Evaluation of phenology-based insecticide strategies for fall armyworm (Spodoptera frugiperda) management in maize in India",
+          "source_url": "https://horizonepublishing.com/index.php/PST/article/view/9619",
+          "source_type": "peer_reviewed_field_study_icar_institute",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "partially_verified",
+        "notes": "Biology, spread, and one corroborated chemical dose are sourced. IP102 class_id/canonical_name mapping, cultural/mechanical IPM steps, and the primary ICAR/IARI advisory document are still pending. Do not treat as fully verified until the primary source is located."
+      }
+    },
+    {
+      "id": "brown_plant_hopper",
+      "canonical_database_id": "brown_plant_hopper",
+      "model": "pest_detection_model",
+      "model_label": "brown plant hopper",
+      "model_class_index": 69,
+      "category": "pest",
+      "crop": {
+        "common_name": "Rice",
+        "scientific_name": "Oryza sativa"
+      },
+      "pest": {
+        "common_name": "Brown plant hopper",
+        "scientific_name": "Nilaparvata lugens",
+        "condition_type": "insect pest"
+      },
+      "identification": {
+        "description": "A phloem-sucking insect (Nilaparvata lugens) that causes 'hopperburn' in rice. Nymphs hatch creamy-white then turn dark brown, and adults are brownish-black. Severe infestations produce dry, yellow-brown patches (hopperburn) and lodging.",
+        "symptoms": [
+          "Rice plants show yellowing and drying of lower leaves (hopperburn) under heavy infestation",
+          "White to dark-brown nymphs and brown adults feeding on leaf sheaths and tiller bases",
+          "Honeydew and sooty mold often appear on undersides of leaves"
+        ]
+      },
+      "risk_factors": [
+        "Warm, humid weather and excessive nitrogen favor BPH outbreaks",
+        "Stagnant water and continuous rice cropping increase pest buildup",
+        "High winds can carry migrant hoppers from nearby fields"
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Monitor rice fields from tillering to flowering for first hopper sighting (1 hopper/tiller = ETL)",
+          "Set up yellow water-pan or light traps to detect migratory adults"
+        ],
+        "cultural_management": [
+          "Use wider spacing (~30 cm row gaps) and alternate wet/dry irrigation",
+          "Avoid excessive nitrogen fertilization"
+        ],
+        "mechanical_or_physical_management": [
+          "Drain the paddy water briefly before spraying to expose insects"
+        ],
+        "biological_management": [
+          "Spray neem oil (3%) or azadirachtin (0.03%) as botanical control",
+          "Preserve natural enemies (spiders) by avoiding broad-spectrum insecticides"
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Acetamiprid",
+              "dose": "20-40 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Acephate",
+              "dose": "400 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Buprofezin",
+              "dose": "320 ml per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Carbosulfan",
+              "dose": "400 ml per acre",
+              "source_id": "TNAU_Rice_Pests_001",
+              "caution_flag": "Carbosulfan has restricted/withdrawn registration status in several contexts in India - do NOT present this as currently approved without an independent CIB&RC check specifically for this active ingredient before any field use."
+            },
+            {
+              "active_ingredient": "Chlorantraniliprole",
+              "dose": "60 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Clothianidin",
+              "dose": "8-10 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Dinotefuran",
+              "dose": "60-80 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Fipronil",
+              "dose": "400 ml per acre (5% SC)",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Flonicamid",
+              "dose": "60 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Imidacloprid",
+              "dose": "40-50 ml per acre (17.8% SL)",
+              "source_id": "TNAU_Rice_Pests_001"
+            },
+            {
+              "active_ingredient": "Pymetrozine",
+              "dose": "120 g per acre",
+              "source_id": "TNAU_Rice_Pests_001"
+            }
+          ],
+          "important_note": "Dosages are as published on the TNAU Agritech Portal (rice pest management). Efficacy depends on application timing and water management. Verify current CIB&RC registration status before use - note Carbosulfan specifically has restricted status in several contexts and needs independent confirmation."
+        },
+        "prevention": [
+          "Rotate rice with non-host crops (legumes, oilseeds) to reduce BPH carryover",
+          "Deep plow stubble after harvest to reduce overwintering inoculum"
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Examine hopper counts weekly; if under 1 per tiller, continue observation."
+        ],
+        "moderate": [
+          "Apply a protectant insecticide (e.g. Acetamiprid or Fipronil) when hoppers reach threshold."
+        ],
+        "high": [
+          "For severe hopperburn, apply insecticide promptly and consult local KVK for emergency measures."
+        ]
+      },
+      "farmer_warning": "Brown planthopper can rapidly kill rice stands via 'hopperburn' if unmanaged, especially around the flowering stage.",
+      "expert_consultation_required_when": [
+        "Hopperburn symptoms appear across more than half the field before flowering",
+        "Uncertainty whether damage is caused by BPH or another planthopper species",
+        "Need advice on pesticide resistance or restricted-status actives like Carbosulfan"
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "Guidance is based on TNAU (Tamil Nadu) recommendations. Check with your State Agricultural University for regional BPH management advice."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_title": "Crop Protection - Paddy - Brown Plant Hopper (Nilaparvata lugens)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_12.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Identification and control measures verified from TNAU rice pest guide. One listed active ingredient (Carbosulfan) is flagged for independent registration-status confirmation before use."
+      }
+    },
+    {
+      "id": "rice_leaf_roller",
+      "canonical_database_id": "rice_leaf_roller",
+      "model": "pest_detection_model",
+      "model_label": "rice leaf roller",
+      "model_class_index": 0,
+      "category": "pest",
+      "crop": {
+        "common_name": "Rice",
+        "scientific_name": "Oryza sativa"
+      },
+      "pest": {
+        "common_name": "Rice leaf roller (leaf folder)",
+        "scientific_name": "Cnaphalocrocis medinalis",
+        "condition_type": "insect pest"
+      },
+      "identification": {
+        "description": "A caterpillar pest whose larvae fold rice leaves lengthwise and scrape out the green tissue. Young folded leaves turn white and dry; heavy infestations give the field a scorched look. Adults are small yellowish-brown moths with dark wavy lines.",
+        "symptoms": [
+          "Longitudinally rolled (folded) leaves with white patches inside",
+          "Greenish, translucent larvae within rolled leaves",
+          "Severely affected fields appear yellow or burned due to dead leaf tissue"
+        ]
+      },
+      "risk_factors": [
+        "Dense canopy or excessive nitrogen increases outbreak risk",
+        "Continuous flooding may favor leaf folder buildup"
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Release egg parasitoids (Trichogramma chilonis) at 2 cc/acre, three times (30, 37, 44 days after sowing)",
+          "Apply NSKE 5% or Azadirachtin 0.03% (400 ml/acre) when infestation begins"
+        ],
+        "cultural_management": [
+          "Avoid excessive nitrogen fertilizer",
+          "Maintain clean bunds (remove weeds/alternate hosts)"
+        ],
+        "mechanical_or_physical_management": [
+          "Promptly remove and destroy heavily rolled leaves during early stages"
+        ],
+        "biological_management": [
+          "Trichogramma chilonis egg parasitoid releases (see immediate actions)"
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Acephate",
+              "dose": "267-400 g per acre (75% SP)",
+              "source_id": "TNAU_Rice_Pests_002"
+            },
+            {
+              "active_ingredient": "Carbosulfan",
+              "dose": "6.7 kg per acre (6% G)",
+              "source_id": "TNAU_Rice_Pests_002",
+              "caution_flag": "Carbosulfan has restricted/withdrawn registration status in several contexts in India - verify current CIB&RC status independently."
+            },
+            {
+              "active_ingredient": "Chlorantraniliprole",
+              "dose": "60 g per acre (18.5% SC)",
+              "source_id": "TNAU_Rice_Pests_002"
+            },
+            {
+              "active_ingredient": "Fipronil",
+              "dose": "20-25 g per acre (80% WG)",
+              "source_id": "TNAU_Rice_Pests_002"
+            },
+            {
+              "active_ingredient": "Flubendiamide",
+              "dose": "20 g per acre (39% SC)",
+              "source_id": "TNAU_Rice_Pests_002"
+            },
+            {
+              "active_ingredient": "Thiamethoxam",
+              "dose": "40 g per acre (25% WG)",
+              "source_id": "TNAU_Rice_Pests_002"
+            }
+          ],
+          "important_note": "Rates as given by TNAU Agritech Portal for rice leaf folder. Sprays should begin at early leaf-rolling. Verify product registration under the Insecticides Act before use."
+        },
+        "prevention": [
+          "Plant resistant or tolerant rice varieties if available",
+          "Follow recommended sowing dates to avoid peak pest migrations"
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Monitor weekly; start NSKE/Azadirachtin sprays if rolling begins."
+        ],
+        "moderate": [
+          "Apply a recommended insecticide (e.g. Chlorantraniliprole or Thiamethoxam) per TNAU schedule."
+        ],
+        "high": [
+          "If over 10% of plants show rolling, apply chemical controls promptly and consult KVK."
+        ]
+      },
+      "farmer_warning": "Leaf roller damage can significantly reduce yield if it progresses into the flowering (panicle) stage.",
+      "expert_consultation_required_when": [
+        "Rolling is widespread beyond threshold levels",
+        "Unclear if damage is leaf roller or another borer/pest"
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "Based on the TNAU rice pest bulletin. Verify local compatibility, e.g. avoid broad-spectrum sprays that harm beneficial insects."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_title": "Crop Protection - Paddy - Leaf Folder / Leaf Roller (Cnaphalocrocis medinalis)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/rice/crop_prot_crop_insectpest_cereals_paddy_m5.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Spray rates and IPM measures taken from the TNAU paddy pest guide. One active ingredient (Carbosulfan) flagged for registration-status confirmation."
+      }
+    },
+    {
+      "id": "aphids",
+      "canonical_database_id": "aphids",
+      "model": "pest_detection_model",
+      "model_label": "aphids",
+      "model_class_index": 19,
+      "category": "pest",
+      "crop": {
+        "common_name": "Multiple (see crop_pest_mapping.json)",
+        "scientific_name": "Various"
+      },
+      "pest": {
+        "common_name": "Aphids",
+        "scientific_name": "Aphididae (various species)",
+        "condition_type": "insect pest"
+      },
+      "identification": {
+        "description": "Small, soft-bodied, sap-sucking insects. Colonies of greenish or yellowish aphids cluster on tender shoots and leaf undersides, excreting honeydew that leads to sooty mold. Common species include Aphis gossypii on okra/cotton and A. craccivora on legumes.",
+        "symptoms": [
+          "Leaf curling, puckering, and yellowing on young shoots",
+          "Stunted growth and shriveling of tender foliage",
+          "Sticky honeydew and black sooty mold on leaves",
+          "Clusters of tiny pear-shaped insects on shoot tips"
+        ]
+      },
+      "risk_factors": [
+        "Warm, dry conditions accelerate aphid population growth",
+        "Excessive nitrogen fertilizer increases susceptibility",
+        "Ants tending colonies can worsen infestations"
+      ],
+      "management": {
+        "immediate_non_chemical_actions": [
+          "Remove severely infested leaves or plants",
+          "Use a strong jet of water to dislodge aphids early in the day"
+        ],
+        "cultural_management": [
+          "Encourage natural predators (ladybirds, lacewings, spiders)",
+          "Practice clean cultivation: destroy weeds that serve as aphid reservoirs"
+        ],
+        "mechanical_or_physical_management": [
+          "Yellow sticky traps to monitor and reduce flights",
+          "Control ant nests near fields (ants farm aphid colonies)"
+        ],
+        "biological_management": [
+          "Neem formulations or Lecanicillium lecanii - ICAR-IGFRI found L. lecanii (2 g/L) and neem (3000 ppm) effective on cowpea aphid"
+        ],
+        "official_chemical_guidance": {
+          "available": true,
+          "guidance": [
+            {
+              "active_ingredient": "Acetamiprid",
+              "dose": "0.15 g/L (20% SP @1.5 g/10L) - for okra",
+              "source_id": "TNAU_Okra_Pests_001"
+            },
+            {
+              "active_ingredient": "Imidacloprid",
+              "dose": "20 g/ha (200 SL @100 ml/ha) - for okra",
+              "source_id": "TNAU_Okra_Pests_001"
+            },
+            {
+              "active_ingredient": "Quinalphos",
+              "dose": "400 ml/acre (25% EC) - for wheat, threshold 10-15 aphids/tiller",
+              "source_id": "ICAR_Wheat_Advisory_2025",
+              "caution_flag": "Quinalphos is a WHO Class Ib organophosphate - verify current registration status before recommending."
+            }
+          ],
+          "important_note": "Chemical guidance is crop-specific (see dose notes) and drawn from TNAU (okra) and an ICAR-IIWBR advisory (wheat) reported via secondary news coverage, not the primary ICAR document. Always match the guidance to the actual host crop and verify current registration before use."
+        },
+        "prevention": [
+          "Plant aphid-tolerant varieties where available",
+          "Maintain balanced crop nutrition to avoid excessive tender growth attractive to aphids"
+        ]
+      },
+      "severity_guidance": {
+        "mild": [
+          "Monitor for ant trails or small colonies; treat only if expanding."
+        ],
+        "moderate": [
+          "Begin chemical control with a crop-appropriate, labelled insecticide."
+        ],
+        "high": [
+          "For heavy infestation, rotate insecticide chemistry and seek local advisory - some aphids transmit viral diseases requiring integrated management."
+        ]
+      },
+      "farmer_warning": "Aphids can rapidly multiply and also spread viral diseases (e.g. YVMV in okra, BYDV in wheat) - early control matters more than the direct feeding damage alone.",
+      "expert_consultation_required_when": [
+        "Widespread stunting or unexplained honeydew is present",
+        "You need to confirm which host crop's guidance applies",
+        "Intercropped/polyculture systems complicate management"
+      ],
+      "india_context": {
+        "india_specific_guidance_available": true,
+        "region_notes": "This is a broad pest category covering multiple aphid species across different host crops (see crop_pest_mapping.json for okra, wheat, cowpea entries). The model detects 'aphids' generically without identifying species or host crop from the image alone - the app should ask the farmer to confirm their crop before showing crop-specific dosage."
+      },
+      "sources": [
+        {
+          "source_name": "TNAU Agritech Portal",
+          "source_title": "Crop Protection - Horticulture - Okra (Aphids)",
+          "source_url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_9.html",
+          "source_type": "state_agricultural_university_extension_portal",
+          "publication_or_update_date": "Not Stated",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        },
+        {
+          "source_name": "ICAR-IIWBR Advisory (via news report)",
+          "source_title": "Agronomic Advisory - Aphid Infestation in Wheat",
+          "source_url": "https://www.global-agriculture.com/farming-agriculture/icar-iiwbr-issues-advisory-on-aphid-infestation-in-wheat",
+          "source_type": "secondary_news_report_of_institutional_advisory",
+          "publication_or_update_date": "2025-03-11",
+          "date_accessed": "2026-09-02",
+          "verification_status": "corroborated_but_not_primary_source"
+        },
+        {
+          "source_name": "ICAR-IGFRI Jhansi",
+          "source_title": "Eco-Friendly Aphid Management in Fodder Cowpea",
+          "source_url": "https://icar.org.in/en/eco-friendly-approaches-identified-effective-management-aphids-fodder-cowpea",
+          "source_type": "ICAR_research_institute_portal",
+          "publication_or_update_date": "2026-08-01",
+          "date_accessed": "2026-09-02",
+          "verification_status": "verified"
+        }
+      ],
+      "last_verified": "2026-09-02",
+      "data_quality": {
+        "status": "verified",
+        "notes": "Multi-crop pest; dosage guidance is crop-specific and must be matched to farmer's actual crop, not applied generically. One source (ICAR wheat advisory) is secondary, not primary."
+      }
+    }
+  ],
+  "remaining_ip102_classes_status": "3 of 102 classes now have verified records (brown_plant_hopper idx69, rice_leaf_roller idx0, aphids idx19). Note: 'fall_armyworm_maize' demo record does NOT correspond to any of this model's 102 actual classes - retained only as a schema reference example, not a usable lookup entry."
+}

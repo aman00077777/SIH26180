@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "description": "Deterministic rule logic the application should apply when converting a model prediction + farmer context into a farmer-facing response. This file contains WORKFLOW LOGIC only, not agricultural facts - all facts must be pulled from disease_database.json / pest_database.json / crop_pest_mapping.json / disease_crop_mapping.json at runtime.",
+  "input_schema": {
+    "prediction_type": "disease | pest",
+    "prediction_id": "matches an id in disease_database.json or pest_database.json",
+    "confidence": "float 0.0-1.0",
+    "crop": "string",
+    "state": "string",
+    "district": "string, optional",
+    "growth_stage": "string",
+    "severity": "string, e.g. mild | moderate | high"
+  },
+  "confidence_threshold_config": {
+    "default_threshold": 0.70,
+    "note": "Tune this threshold using validation-set accuracy for each model; do not hardcode without evaluating your specific trained model's calibration.",
+    "low_confidence_message": "Prediction confidence is low. Please upload a clearer image or consult an agricultural expert."
+  },
+  "pipeline_steps": [
+    {
+      "step": 1,
+      "name": "confidence_gate",
+      "logic": "IF confidence < confidence_threshold_config.default_threshold THEN return low_confidence_message AND STOP (do not proceed to lookup).",
+      "on_pass": "proceed to step 2"
+    },
+    {
+      "step": 2,
+      "name": "identify_prediction",
+      "logic": "Look up prediction_id in disease_database.json (if prediction_type=='disease') or pest_database.json (if prediction_type=='pest'). IF no matching record exists THEN return: 'This condition is not yet in our verified knowledge base. Please consult your local KVK or agriculture department.' AND STOP."
+    },
+    {
+      "step": 3,
+      "name": "confirm_crop_compatibility",
+      "logic": "For disease: compare input crop against record.crop.common_name (and disease_crop_mapping.json for cross-crop pathogens). For pest: check crop_pest_mapping.json for a record with matching pest_id and crop with relationship.verified_host==true. IF crop does not match / is not a verified host THEN return a warning that this prediction is unusual for the stated crop and recommend photo/expert re-verification, but do not block the response entirely - flag it prominently."
+    },
+    {
+      "step": 4,
+      "name": "retrieve_india_guidance",
+      "logic": "Pull management/integrated_pest_management fields from the matched record. Check record.data_quality.status. IF status == 'not_verified' THEN the response MUST state this record has not yet been verified and route to a generic KVK/expert-consultation message instead of fabricated steps."
+    },
+    {
+      "step": 5,
+      "name": "management_priority_order",
+      "logic": "When presenting management options, ALWAYS present in this order, and only include a tier if the record has non-empty, non-placeholder content for it: A. monitoring_and_confirmation, B. cultural_management, C. mechanical_or_physical_management (or mechanical_physical for pests), D. biological_management, E. official_chemical_guidance (ONLY IF official_chemical_guidance.available == true).",
+      "note": "Never reorder to put chemical guidance first, even if it is the only verified tier available - always frame chemical guidance as a later-tier option alongside the non-chemical tiers when they exist."
+    },
+    {
+      "step": 6,
+      "name": "chemical_guidance_gate",
+      "logic": "IF official_chemical_guidance.available == false THEN the response MUST use this exact fallback text and MUST NOT generate any chemical name, dose, or product: 'Consult your local KVK, agriculture department, or licensed agricultural expert for currently approved treatment options.'",
+      "additional_note": "Even when official_chemical_guidance.available == true, always append record.management.official_chemical_guidance.important_note verbatim, since it typically contains critical caveats (e.g., dated sources, unconfirmed registration status)."
+    },
+    {
+      "step": 7,
+      "name": "severity_adjustment",
+      "logic": "Use input severity to select the matching key in record.severity_guidance (mild/moderate/high) as supplementary guidance layered on top of, not instead of, the management tiers from step 5."
+    },
+    {
+      "step": 8,
+      "name": "assemble_farmer_response",
+      "logic": "Populate the farmer-facing output schema (see output_schema below) using only fields sourced from the matched database record. Do not add any recommendation not present in the record."
+    }
+  ],
+  "output_schema": {
+    "detected_problem": "record.condition.common_name (disease) or record.pest.common_name (pest)",
+    "confidence": "formatted percentage from input.confidence",
+    "what_it_is": "record.identification.description, simplified/plain-language",
+    "what_to_check": "record.identification.symptoms or record.damage_symptoms",
+    "immediate_steps": "step 5 tiers A-D content, farmer-friendly phrasing",
+    "prevention": "record.management.prevention",
+    "important_warning": "record.farmer_warning + always append the fixed AI-decision-support disclaimer (see disclaimers below)",
+    "official_source_links": "record.sources[].source_url"
+  },
+  "always_append_disclaimer": "AI predictions are decision-support information and should not replace professional agricultural advice. Treatment decisions should follow current, crop-specific, and region-specific guidance.",
+  "unverified_record_fallback_message": "Our records for this condition are still being verified against official sources. For safe, up-to-date guidance, please contact your local Krishi Vigyan Kendra (KVK), state agriculture department, or a licensed agricultural expert."
+}
