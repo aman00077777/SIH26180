@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="assets">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/label_mapping_template.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/disease_crop_mapping.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/pest_model_int8.tflite.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/healthy_classes_supplement.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/source_registry.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/App_Development_Handoff.md.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/crop_to_classes_mapping.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/README.txt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/pest_database.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/pest_class_names.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/class_names.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/crop_model_int8.tflite.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/crop_pest_mapping.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/recommendation_rules.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SmartFarmingAssistant/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/disease_database.json.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

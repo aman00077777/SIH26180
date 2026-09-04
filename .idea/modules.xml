@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SIH26180.iml" filepath="$PROJECT_DIR$/.idea/SIH26180.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartFarmingAssistant/app/src/app.iml" filepath="$PROJECT_DIR$/SmartFarmingAssistant/app/src/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartFarmingAssistant/app/build/generated/generated.iml" filepath="$PROJECT_DIR$/SmartFarmingAssistant/app/build/generated/generated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartFarmingAssistant/app/build/kspCaches/kspCaches.iml" filepath="$PROJECT_DIR$/SmartFarmingAssistant/app/build/kspCaches/kspCaches.iml" />
+    </modules>
+  </component>
+</project>
