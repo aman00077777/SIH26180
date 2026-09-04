@@ -69,7 +69,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         _isAutoMode.value = enabled
         if (enabled) {
             if (_fieldNodeIpAddress.value.isNotBlank()) {
-                virtualCaptureManager.startPolling("http://${_fieldNodeIpAddress.value}:5000")
+                virtualCaptureManager.startPolling(buildNodeUrl(_fieldNodeIpAddress.value))
             }
             _mergedSensorData.value = lastKnownLiveData
             _mergedConnectionState.value = bleManager.connectionState.value
@@ -98,10 +98,24 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         setAutoMode(enabled)
     }
 
+    /**
+     * Builds the base URL for the virtual field node.
+     * Supports both local IPs (e.g. "192.168.1.42" → "http://192.168.1.42:5000")
+     * and cloud URLs (e.g. "krishitech-field-node.onrender.com" → "https://krishitech-field-node.onrender.com").
+     */
+    private fun buildNodeUrl(input: String): String {
+        val trimmed = input.trim()
+        return when {
+            trimmed.startsWith("http://") || trimmed.startsWith("https://") -> trimmed.trimEnd('/')
+            trimmed.contains(".") && !trimmed[0].isDigit() -> "https://$trimmed".trimEnd('/')
+            else -> "http://$trimmed:5000"
+        }
+    }
+
     fun setFieldNodeIp(ip: String) {
         _fieldNodeIpAddress.value = ip
         if (_isAutoMode.value && ip.isNotBlank()) {
-            virtualCaptureManager.startPolling("http://$ip:5000")
+            virtualCaptureManager.startPolling(buildNodeUrl(ip))
         }
     }
 
@@ -140,7 +154,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     init {
         // Start camera polling if initially in Auto mode and IP available
         if (_isAutoMode.value && _fieldNodeIpAddress.value.isNotBlank()) {
-            virtualCaptureManager.startPolling("http://${_fieldNodeIpAddress.value}:5000")
+            virtualCaptureManager.startPolling(buildNodeUrl(_fieldNodeIpAddress.value))
         }
 
         // Collect from BLE manager

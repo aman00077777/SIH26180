@@ -209,8 +209,8 @@ fun ProfileScreen(
                     OutlinedTextField(
                         value = ipAddress,
                         onValueChange = { ipAddress = it; ipSaved = false },
-                        label = { Text("Laptop IP address") },
-                        placeholder = { Text("e.g. 192.168.1.42", color = Color.White.copy(alpha = 0.3f)) },
+                        label = { Text("Server address") },
+                        placeholder = { Text("IP or cloud URL", color = Color.White.copy(alpha = 0.3f)) },
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedTextColor = Color.White,
                             unfocusedTextColor = Color.White,
@@ -223,7 +223,7 @@ fun ProfileScreen(
                     )
                     Spacer(Modifier.height(6.dp))
                     Text(
-                        "Find this by running 'ipconfig' on your laptop.",
+                        "Local IP (e.g. 192.168.1.42) or cloud URL (e.g. krishitech.onrender.com)",
                         color = Color.White.copy(alpha = 0.5f),
                         style = MaterialTheme.typography.bodySmall
                     )
