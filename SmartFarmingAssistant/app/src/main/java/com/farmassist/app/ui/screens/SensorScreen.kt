@@ -24,6 +24,7 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 fun SensorScreen(
     connectionState: BleConnectionState,
     sensorData: LiveSensorData,
+    isAutoMode: Boolean = true,
     onStartScan: () -> Unit,
     onStopScan: () -> Unit
 ) {
@@ -37,7 +38,18 @@ fun SensorScreen(
     Column(Modifier.fillMaxSize().padding(24.dp)) {
         Text("Field Node Status", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))
-        Text("Status: ${connectionState.name}")
+        Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+            Text(
+                if (isAutoMode) "Mode: Auto (Live BLE Stream)" else "Mode: Manual (User Override)",
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold
+            )
+            Spacer(Modifier.width(10.dp))
+            AssistChip(
+                onClick = {},
+                label = { Text(if (isAutoMode) connectionState.name else "Manual") }
+            )
+        }
 
         Spacer(Modifier.height(24.dp))
 

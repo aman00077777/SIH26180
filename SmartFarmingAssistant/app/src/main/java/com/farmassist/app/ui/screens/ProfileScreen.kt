@@ -190,7 +190,10 @@ fun ProfileScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Enable virtual field mode", color = Color.White)
+                        Column {
+                            Text("Auto Mode (Virtual Field Node)", color = Color.White, style = MaterialTheme.typography.bodyLarge)
+                            Text("When ON, connects to simulator BLE & camera", color = Color.White.copy(alpha = 0.6f), style = MaterialTheme.typography.bodySmall)
+                        }
                         Switch(
                             checked = virtualFieldModeEnabled,
                             onCheckedChange = onVirtualFieldModeToggled,

@@ -67,15 +67,15 @@ fun FarmAssistApp(viewModel: AppViewModel) {
     // Holds the captured bitmap across the capture -> confirm -> acreage steps.
     var pendingBitmap by remember { mutableStateOf<Bitmap?>(null) }
 
-    // ── Virtual field mode: auto-feed images from the hardware agent ─────
-    val virtualModeEnabled by viewModel.virtualFieldModeEnabled.collectAsStateWithLifecycle()
+    // ── Auto / Manual mode & Virtual field capture ─────────────────────
+    val isAutoMode by viewModel.isAutoMode.collectAsStateWithLifecycle()
     val virtualBitmap by viewModel.virtualCaptureManager.latestBitmap.collectAsStateWithLifecycle()
     val virtualCropHint by viewModel.virtualCaptureManager.cropHint.collectAsStateWithLifecycle()
 
-    // When a new virtual image arrives and virtual mode is on, feed it into the
-    // same inference pipeline — skipping the manual camera step entirely.
-    LaunchedEffect(virtualBitmap, virtualModeEnabled) {
-        if (virtualModeEnabled && virtualBitmap != null) {
+    // When in Auto mode and a new virtual image arrives, feed it into the
+    // downstream inference pipeline automatically.
+    LaunchedEffect(virtualBitmap, isAutoMode) {
+        if (isAutoMode && virtualBitmap != null) {
             pendingBitmap = virtualBitmap
             // Auto-set the crop from the camera module's crop_hint if available
             if (!virtualCropHint.isNullOrBlank()) {
@@ -104,9 +104,38 @@ fun FarmAssistApp(viewModel: AppViewModel) {
             composable(Screen.Home.route) {
                 val connectionState by viewModel.bleConnectionState.collectAsStateWithLifecycle()
                 val sensorData by viewModel.sensorData.collectAsStateWithLifecycle()
+                val manualSensorData by viewModel.manualSensorData.collectAsStateWithLifecycle()
+
                 HomeScreen(
+                    isAutoMode = isAutoMode,
+                    onToggleAutoMode = { viewModel.setAutoMode(it) },
                     sensorData = sensorData,
                     connectionState = connectionState,
+                    manualSensorData = manualSensorData,
+                    onUpdateManualSensors = { viewModel.updateManualSensorData(it) },
+                    pendingPhoto = pendingBitmap,
+                    onPhotoSelected = { bitmap ->
+                        pendingBitmap = bitmap
+                    },
+                    onTakePhoto = {
+                        navController.navigate(ROUTE_CAMERA)
+                    },
+                    selectedCrop = viewModel.selectedCrop,
+                    onSelectCrop = { crop ->
+                        viewModel.selectedCrop = crop.ifBlank { null }
+                    },
+                    availableCrops = viewModel.cropMapping.cropNames(),
+                    onAnalyze = {
+                        val photo = pendingBitmap
+                        if (photo != null) {
+                            // Unified downstream trigger: record sensor readings and run inference
+                            viewModel.recordSensorReading(sensorData)
+                            viewModel.runInference(photo, viewModel.selectedCrop, null)
+                            navController.navigate(ROUTE_RESULT)
+                        } else {
+                            navController.navigate(ROUTE_CAMERA)
+                        }
+                    },
                     onScanCrop = { navController.navigate(Screen.Capture.route) },
                     onOpenSensors = { navController.navigate(Screen.Sensor.route) },
                     onOpenHistory = { navController.navigate(Screen.History.route) },
@@ -185,14 +214,16 @@ fun FarmAssistApp(viewModel: AppViewModel) {
             composable(Screen.Sensor.route) {
                 val connectionState by viewModel.bleConnectionState.collectAsStateWithLifecycle()
                 val sensorData by viewModel.sensorData.collectAsStateWithLifecycle()
+                val autoMode by viewModel.isAutoMode.collectAsStateWithLifecycle()
 
                 LaunchedEffect(sensorData) {
-                    if (sensorData.connected) viewModel.recordSensorReading(sensorData)
+                    if (sensorData.connected && autoMode) viewModel.recordSensorReading(sensorData)
                 }
 
                 SensorScreen(
                     connectionState = connectionState,
                     sensorData = sensorData,
+                    isAutoMode = autoMode,
                     onStartScan = { viewModel.bleManager.startScan() },
                     onStopScan = { viewModel.bleManager.stopScan() }
                 )

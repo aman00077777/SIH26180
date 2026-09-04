@@ -31,6 +31,13 @@ data class PredictionUiState(
     val usingNpu: Boolean = false
 )
 
+data class ManualSensorData(
+    val soilMoisture: Float = 45f,
+    val temperature: Float = 28f,
+    val humidity: Float = 60f,
+    val rainfall: Boolean = false
+)
+
 class AppViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = AppDatabase.getInstance(application)
@@ -39,30 +46,82 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     private val diseaseInfoRepo = DiseaseInfoRepository(application)
     val cropMapping = CropClassMapping(application)
 
-    // ── Virtual field mode ──────────────────────────────────────────────
-    val virtualCaptureManager = VirtualFieldCaptureManager()
+    // ── Global Auto / Manual Data Source Mode ───────────────────────────
+    private val _isAutoMode = MutableStateFlow(true)
+    val isAutoMode: StateFlow<Boolean> = _isAutoMode
 
-    private val _virtualFieldModeEnabled = MutableStateFlow(false)
-    val virtualFieldModeEnabled: StateFlow<Boolean> = _virtualFieldModeEnabled
+    // Backwards-compatible alias for ProfileScreen / existing observers
+    val virtualFieldModeEnabled: StateFlow<Boolean> = _isAutoMode
 
-    private val _fieldNodeIpAddress = MutableStateFlow("")
+    private val _manualSensorData = MutableStateFlow(ManualSensorData())
+    val manualSensorData: StateFlow<ManualSensorData> = _manualSensorData
+    private var hasUserEditedManual = false
+
+    private val _fieldNodeIpAddress = MutableStateFlow("10.0.2.2")
     val fieldNodeIpAddress: StateFlow<String> = _fieldNodeIpAddress
 
-    fun setVirtualFieldMode(enabled: Boolean) {
-        _virtualFieldModeEnabled.value = enabled
-        if (enabled && _fieldNodeIpAddress.value.isNotBlank()) {
-            virtualCaptureManager.startPolling("http://${_fieldNodeIpAddress.value}:5000")
+    // ── Virtual field capture manager ───────────────────────────────────
+    val virtualCaptureManager = VirtualFieldCaptureManager()
+
+    private var lastKnownLiveData = LiveSensorData()
+
+    fun setAutoMode(enabled: Boolean) {
+        _isAutoMode.value = enabled
+        if (enabled) {
+            if (_fieldNodeIpAddress.value.isNotBlank()) {
+                virtualCaptureManager.startPolling("http://${_fieldNodeIpAddress.value}:5000")
+            }
+            _mergedSensorData.value = lastKnownLiveData
+            _mergedConnectionState.value = bleManager.connectionState.value
         } else {
             virtualCaptureManager.stopPolling()
+            // Pre-fill with last known live values if user hasn't customized manual values yet
+            if (!hasUserEditedManual) {
+                if (lastKnownLiveData.soilMoisturePercent != null ||
+                    lastKnownLiveData.temperatureCelsius != null ||
+                    lastKnownLiveData.humidityPercent != null
+                ) {
+                    _manualSensorData.value = ManualSensorData(
+                        soilMoisture = lastKnownLiveData.soilMoisturePercent ?: 45f,
+                        temperature = lastKnownLiveData.temperatureCelsius ?: 28f,
+                        humidity = lastKnownLiveData.humidityPercent ?: 60f,
+                        rainfall = lastKnownLiveData.rainfallFlag
+                    )
+                }
+            }
+            publishManualSensorData(_manualSensorData.value)
+            _mergedConnectionState.value = BleConnectionState.CONNECTED
         }
+    }
+
+    fun setVirtualFieldMode(enabled: Boolean) {
+        setAutoMode(enabled)
     }
 
     fun setFieldNodeIp(ip: String) {
         _fieldNodeIpAddress.value = ip
-        // If virtual mode is already on, restart polling with the new IP
-        if (_virtualFieldModeEnabled.value && ip.isNotBlank()) {
+        if (_isAutoMode.value && ip.isNotBlank()) {
             virtualCaptureManager.startPolling("http://$ip:5000")
         }
+    }
+
+    fun updateManualSensorData(data: ManualSensorData) {
+        hasUserEditedManual = true
+        _manualSensorData.value = data
+        if (!_isAutoMode.value) {
+            publishManualSensorData(data)
+        }
+    }
+
+    private fun publishManualSensorData(data: ManualSensorData) {
+        _mergedSensorData.value = LiveSensorData(
+            soilMoisturePercent = data.soilMoisture,
+            temperatureCelsius = data.temperature,
+            humidityPercent = data.humidity,
+            rainfallFlag = data.rainfall,
+            batteryLevelPercent = null,
+            connected = true
+        )
     }
     // ────────────────────────────────────────────────────────────────────
 
@@ -79,17 +138,23 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     val bleConnectionState: StateFlow<BleConnectionState> = _mergedConnectionState
 
     init {
+        // Start camera polling if initially in Auto mode and IP available
+        if (_isAutoMode.value && _fieldNodeIpAddress.value.isNotBlank()) {
+            virtualCaptureManager.startPolling("http://${_fieldNodeIpAddress.value}:5000")
+        }
+
         // Collect from BLE manager
         viewModelScope.launch {
             bleManager.sensorData.collect { bleData ->
-                if (!_virtualFieldModeEnabled.value || bleData.connected) {
+                lastKnownLiveData = bleData
+                if (_isAutoMode.value) {
                     _mergedSensorData.value = bleData
                 }
             }
         }
         viewModelScope.launch {
             bleManager.connectionState.collect { state ->
-                if (!_virtualFieldModeEnabled.value || state == BleConnectionState.CONNECTED) {
+                if (_isAutoMode.value) {
                     _mergedConnectionState.value = state
                 }
             }
@@ -97,9 +162,12 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         // Collect from WiFi virtual field mode
         viewModelScope.launch {
             virtualCaptureManager.telemetryData.collect { wifiData ->
-                if (_virtualFieldModeEnabled.value && wifiData != null) {
-                    _mergedSensorData.value = wifiData
-                    _mergedConnectionState.value = BleConnectionState.CONNECTED
+                if (wifiData != null) {
+                    lastKnownLiveData = wifiData
+                    if (_isAutoMode.value) {
+                        _mergedSensorData.value = wifiData
+                        _mergedConnectionState.value = BleConnectionState.CONNECTED
+                    }
                 }
             }
         }
