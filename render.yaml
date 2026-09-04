@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: krishitech-field-node
+    runtime: docker
+    dockerfilePath: virtual_hardware_agent/Dockerfile
+    dockerContext: virtual_hardware_agent
+    plan: free
+    envVars:
+      - key: PORT
+        value: "5000"
